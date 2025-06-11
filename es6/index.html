@@ -1,0 +1,56 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>ES6 Test</title>
+        <script src="main.js" type="module"></script>
+
+        <link rel="stylesheet" type="text/css" href="main.css">
+    </head>
+    <body>
+        <h2>ES6 Test</h2>
+        <div class="flex controls">
+            <div><input type="button" id="addItem" value="Add Item" /></div>
+            <div><input type="button" id="clearChecked" value="Clear Checked" /></div>
+        </div>
+        <div>
+            <table class="records">
+                <thead><tr><th>Item</th><th>Count</th><th>Price</th></tr></thead>
+                <tbody id="records"></tbody>
+            </table>
+        </div>
+
+
+        <div class="modal hidden" tabindex="-1" id="modal">
+            <div class="modal-body">
+                <h2>Add Item</h2>
+                <a class="x">X</a>
+                <form id="recordForm">
+                    <div id="category-container">
+                        <label for="category">Category</label><br />
+                        <select class="form-input" name="category" id="category"></select>
+                    </div>
+                    <div id="item-container">
+                        <label for="item">Item</label><br />
+                        <select class="form-input" name="item" id="item"></select>
+                    </div>
+                    <div class="flex">
+                        <div>
+                            <label for="count">Count</label><br />
+                            <input type="number" name="count" id="count" class="form-input"/>
+                        </div>
+                        <div>
+                            <label for="price">Price</label><br />
+                            <input type="number" name="price" id="price" class="form-input"/>
+                        </div>
+                    </div>
+                    <div>
+                        <br />
+                        <input type="submit" value="Add Item"  />
+                    </div>
+                </form>
+            </div>
+        </div>
+    </body>
+</html>
