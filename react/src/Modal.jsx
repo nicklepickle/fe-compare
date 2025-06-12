@@ -1,17 +1,8 @@
 import './Modal.css'
 import { useState, useEffect } from 'react';
 
-
-function Modal() {
-    const [categories, setCategories] = useState([]);
+function Modal({categories, setRecords}) {
     const [items, setItems] = useState([]);
-    const fetchCategories = async() => {
-        await fetch('/categories')
-            .then(response => response.json())
-            .then(json => {setCategories(json) })
-            .catch(error => console.error(error));   
-    }
-
     const fetchItems= async(category) => {
         await fetch('/items?category='+ category)
             .then(response => response.json())
@@ -19,15 +10,26 @@ function Modal() {
             .catch(error => console.error(error));   
     }
 
+    const toggleModal = function() {
+        document.getElementById('modal').classList.toggle('hidden')
+    }
+
     const categoryChanged = function(e) {
         //console.log('changed to ', e.target.value)
         fetchItems(e.target.value); //nice!
     }
 
-    // handle submit
-    // https://medium.com/@kirstyn.nichole/creating-a-form-json-post-request-in-javascript-with-react-bad63a5e45bc
+    const handleSubmit = function(e) {
+         e.preventDefault();
+        console.log(e.target.id)
+        const $form = document.getElementById(e.target.id);
+        const data = new URLSearchParams(new FormData($form)); 
+        fetch('/records',{method:'post',body: data})
+            .then(response => response.json())
+            .then(json => { setRecords(json); toggleModal()})
+            .catch(error => console.error(error));      
+    }
 
-    useEffect(() => {fetchCategories()}, []);
     useEffect(() => {fetchItems('100')}, []);
 
 
@@ -36,10 +38,8 @@ function Modal() {
 <div className="modal hidden" tabIndex="-1" id="modal">
     <div className="modal-body">
         <h2>Add Item</h2>
-        <a className="x" onClick={() => {
-              document.getElementById('modal').classList.toggle('hidden');
-            }}>X</a>
-        <form>
+        <a className="x" onClick={toggleModal}>X</a>
+        <form onSubmit={handleSubmit} id="recordForm">
             <div id="category-container">
             <label htmlFor="category">Category</label><br />
             <select className="form-input" name="category" id="category" onChange={categoryChanged}>
@@ -66,7 +66,7 @@ function Modal() {
             </div>
             <div>
                 <br />
-                <input type="button" value="Add Item" />
+                <input type="submit" value="Add Item" />
             </div>
         </form>
     </div>

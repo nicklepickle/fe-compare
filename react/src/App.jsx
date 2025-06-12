@@ -1,16 +1,7 @@
+import { useState, useEffect } from 'react';
+import { ErrorBoundary } from "react-error-boundary";
 import Records from './Records.jsx'
 import Modal from './Modal.jsx'
-import { ErrorBoundary } from "react-error-boundary";
-function fallbackRender({ error, resetErrorBoundary }) {
-  // Call resetErrorBoundary() to reset the error boundary and retry the render.
-
-  return (
-    <div role="alert">
-      <p>Something went wrong:</p>
-      <pre style={{ color: "red" }}>{error.message}</pre>
-    </div>
-  );
-}
 
 function Fallback({ error, resetErrorBoundary }) {
   // Call resetErrorBoundary() to reset the error boundary and retry the render.
@@ -23,8 +14,29 @@ function Fallback({ error, resetErrorBoundary }) {
   );
 }
 
-
 function App() {
+    const [records, setRecords] = useState([]);
+    const [categories, setCategories] = useState([]);
+
+
+    const fetchRecords = async() => {
+        await fetch('/records')
+            .then(response => response.json())
+            .then(json => {setRecords(json) })
+            .catch(error => console.error(error));   
+    }
+
+    const fetchCategories = async() => {
+        await fetch('/categories')
+            .then(response => response.json())
+            .then(json => {setCategories(json)  })
+            .catch(error => console.error(error));   
+    }
+
+    useEffect(() => {fetchRecords()}, []);
+    useEffect(() => {fetchCategories()}, []);
+
+
   return (
     <>
       <ErrorBoundary  onError={console.error} FallbackComponent={Fallback} >
@@ -37,8 +49,8 @@ function App() {
 
             }} /></div>
         </div>
-        <Records />
-        <Modal />
+        <Records categories={categories}  setRecords={setRecords} records={records} />
+        <Modal categories={categories} setRecords={setRecords} />
       </ErrorBoundary>
     </>
   )
