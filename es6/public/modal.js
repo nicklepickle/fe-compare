@@ -63,7 +63,7 @@ function Modal() {
                 errors++;
             }
             else if(key == 'item' && document.querySelector(`input[name="${value}"]`) != null) {
-                console.log(document.querySelector(`input[name="${value}"]`))
+                //console.log(document.querySelector(`input[name="${value}"]`))
                 document.getElementById(key + '-error').classList.remove('hidden');
                 errors++;
             }

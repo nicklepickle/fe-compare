@@ -5,8 +5,22 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>HTMX Test</title>
         <script src="htmx.min.js"></script>
+        <script>
+            function validate(key) {
+                let value = document.getElementById(key).value;
+                if ((key == 'price' || key == 'count') && !value.match(/[0-9]+/g)) {
+                    document.getElementById(key + '-error').classList.remove('hidden');
 
+                }
+                else if(key == 'item' && document.querySelector(`input[name="${value}"]`) != null) {
+                    console.log(document.querySelector(`input[name="${value}"]`))
+                    document.getElementById(key + '-error').classList.remove('hidden');
+
+                }
+            }
+        </script>
         <link rel="stylesheet" type="text/css" href="main.css">
+
     </head>
     <body>
         <h2>HTMX Test</h2>
@@ -26,17 +40,19 @@
                     <div id="item-container" hx-get="/items?category=100" hx-trigger="load"></div>
                     <div class="flex">
                         <div>
-                            <label for="count">Count</label><br />
-                            <input type="number" name="count" id="count" class="form-input"/>
+                            <label for="count">Count</label>
+                            <input type="number" name="count" id="count" required class="form-input" hx-on:htmx:validation:validate="validate('count')"/>
+                            <span class="error hidden" id="count-error">Count must be numeric</span>
                         </div>
                         <div>
-                            <label for="price">Price</label><br />
-                            <input type="number" name="price" id="price" class="form-input"/>
+                            <label for="price">Price</label>
+                            <input type="number" name="price" id="price" required class="form-input" hx-on:htmx:validation:validate="validate('price')"/>
+                            <span class="error hidden" id="price-error">Price must be numeric</span>
                         </div>
                     </div>
                     <div>
                         <br />
-                        <input type="button" value="Add Item" hx-post="/records" hx-target="#records"  hx-on:click="htmx.toggleClass(htmx.find('.modal'),'hidden')" />
+                        <input type="button" value="Add Item" hx-post="/records" hx-target="#records"  hx-validate="true" /> <!--hx-on:click="htmx.toggleClass(htmx.find('.modal'),'hidden')" /> -->
                     </div>
                 </form>
             </div>

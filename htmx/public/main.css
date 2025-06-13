@@ -71,10 +71,11 @@ input[type=button] {
     border: 1px solid #999;
     font-size: 16px;
     width: 294px;
-    margin-bottom: 10px;
 }
 
 label {
+    display:block;
+    margin-top: 10px;
     font-weight: bold;
 }
 
@@ -143,6 +144,11 @@ label {
 
 .x:hover {
     text-decoration: none;
+}
+
+.error {
+    color: #900;
+    font-size: 12px;
 }
 
 .hidden {
