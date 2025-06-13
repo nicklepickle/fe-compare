@@ -1,4 +1,4 @@
-function Category({catrec, setRecords}) {
+function Category({recordsByCategory, setRecords}) {
     function checkItem(e) {
         console.log(e.target.name, e.target.checked)
         fetch(`/check?item=${e.target.name}&checked=${e.target.checked}`)
@@ -8,11 +8,11 @@ function Category({catrec, setRecords}) {
 
     }
 
-    if (catrec.records) {
+    if (recordsByCategory.records) {
     return (
         <>
-            <tr><th colspan="3" class="category">{catrec.category} </th></tr>
-            {catrec.records.map( function(record) { 
+            <tr><th colspan="3" class="category">{recordsByCategory.category} </th></tr>
+            {recordsByCategory.records.map( function(record) { 
               return (
                 <tr key={record.item}>
                     <td><input type="checkbox" name={record.item} checked={record.checked} onChange={checkItem} />{record.item}</td>

@@ -15,6 +15,15 @@ function Fallback({ error, resetErrorBoundary }) {
 }
 
 function App() {
+    function clearChecked(e) {
+        console.log(e.target.name, e.target.checked)
+        fetch('/clear')
+        .then(response => response.json())
+        .then(json => {setRecords(json) })
+        .catch(error => console.error(error));
+
+    }
+
     const [records, setRecords] = useState([]);
     const [categories, setCategories] = useState([]);
 
@@ -39,16 +48,15 @@ function App() {
 
   return (
     <>
+      <h2>React Test</h2>
+      <div className="flex controls">
+          <div><input type="button" value="Add Item" onClick={() => {
+            document.getElementById('modal').classList.toggle('hidden');
+          }} /></div>
+          <div><input type="button" value="Clear Checked" onClick={clearChecked} /></div>
+      </div>
+      
       <ErrorBoundary  onError={console.error} FallbackComponent={Fallback} >
-        <h2>React Test</h2>
-        <div className="flex controls">
-            <div><input type="button" value="Add Item" onClick={() => {
-              document.getElementById('modal').classList.toggle('hidden');
-            }} /></div>
-            <div><input type="button" value="Clear Checked" onClick={() => {
-
-            }} /></div>
-        </div>
         <Records categories={categories}  setRecords={setRecords} records={records} />
         <Modal categories={categories} setRecords={setRecords} />
       </ErrorBoundary>
