@@ -82,35 +82,6 @@ function Records() {
         records.$body.append($totalRow);
     
     },
-    addRecord(e, success) {
-        e.preventDefault();
-        //console.log(e.target.id)
-        document.querySelectorAll('.error').forEach((error) => {
-            error.classList.add('hidden');
-        });
-        const $form = document.getElementById(e.target.id);
-        const data = new URLSearchParams(new FormData($form));
-        let errors = 0;
-        data.forEach(function(value, key) {
-            if ((key == 'price' || key == 'count') && !value.match(/[0-9]+/g)) {
-                document.getElementById(key + '-error').classList.remove('hidden');
-                errors++;
-            }
-            else if(key == 'item' && document.querySelector(`input[name="${value}"]`) != null) {
-                console.log(document.querySelector(`input[name="${value}"]`))
-                document.getElementById(key + '-error').classList.remove('hidden');
-                errors++;
-            }
-        })
-        if (errors == 0) {
-            fetch('/records',{method:'post',body: data})
-                .then(response => response.json())
-                .then(json => {records.fetchRecords()})
-                .catch(error => console.error(error));
-            success();
-        }
-
-    },
     checkItem(e) {
         //console.log(e.target.name)
         //console.log(e.target.checked)

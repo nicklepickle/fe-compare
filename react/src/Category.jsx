@@ -11,7 +11,7 @@ function Category({recordsByCategory, setRecords}) {
     if (recordsByCategory.records) {
     return (
         <>
-            <tr><th colspan="3" class="category">{recordsByCategory.category} </th></tr>
+            <tr><th colSpan="3" className="category">{recordsByCategory.category} </th></tr>
             {recordsByCategory.records.map( function(record) { 
               return (
                 <tr key={record.item}>
