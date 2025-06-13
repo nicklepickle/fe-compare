@@ -15,6 +15,6 @@ window.addEventListener('load', () => {
 $('#addItem').addEventListener('click', modal.open);
 $('#clearChecked').addEventListener('click', records.clearChecked)
 $('#category').addEventListener('change', (e) => {modal.fetchItems(e.target.value)})
-$('#recordForm').addEventListener('submit', (e) => {records.addRecord(e, modal.close);} );
+$('#recordForm').addEventListener('submit', (e) => {modal.addRecord(e, records.fetchRecords)});
 $('.x').addEventListener('click', modal.close);
 
