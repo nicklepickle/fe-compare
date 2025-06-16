@@ -48,10 +48,10 @@ app.get('/records', async(req, res, next) => {
           html += `<tr><th colspan="3" class="category">${getCategoryName(r.category)}</th></tr>`;
         }
         if (r.checked) {
-          html += `<tr><td><input type="checkbox" checked hx-get="/check?checked=false&item=${r.item}" hx-trigger="click">${r.item}</td>`
+          html += `<tr><td><input type="checkbox" name="${r.item}" checked hx-get="/check?checked=false&item=${r.item}" hx-trigger="click">${r.item}</td>`
         }
         else {
-          html += `<tr><td><input type="checkbox" hx-get="/check?checked=true&item=${r.item}">${r.item}</td>`
+          html += `<tr><td><input type="checkbox" name="${r.item}" hx-get="/check?checked=true&item=${r.item}">${r.item}</td>`
         }
         html += `<td>${r.count}</td><td>$${Number(r.price).toFixed(2)}</td></tr>`;
         cat = r.category;
