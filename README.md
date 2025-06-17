@@ -24,7 +24,7 @@ We are not evuating back end. The project will use express to implement API and 
 simple json files. Vite is used to build and develop. vite-express is used to as glue.
 
 ## Notes
-React - Struggled with coalescing item and category
-HTMX - Have not been able to inmplement form validation (skill issue?)
-ES6 - Generating HTML elements comparatively tedious, call to cateogry API in both modules
+- React - Struggled with coalescing item and category
+- HTMX - Have not been able to inmplement form validation (skill issue?)
+- ES6 - Generating HTML elements comparatively tedious, call to cateogry API in both modules
 

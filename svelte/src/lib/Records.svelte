@@ -10,7 +10,7 @@
     }
 
     function getTotal(recs) {
-        return records.reduce((total, rec) => {return total + Number(rec.price)}, 0)
+        return recs.reduce((total, rec) => {return total + (Number(rec.price) * Number(rec.count))}, 0)
     }
 
 
