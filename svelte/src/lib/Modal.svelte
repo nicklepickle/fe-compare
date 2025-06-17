@@ -1,6 +1,6 @@
 <script>
     import { onMount } from "svelte";
-    let {categories} = $props();
+    let {records = $bindable(), categories} = $props();
     let items = $state([]);
 
     onMount( function () {
@@ -20,7 +20,7 @@
         fetchItems(e.target.value)
     }
 
-    function addRecord(e, success) {
+    function addRecord(e) {
         e.preventDefault();
         //console.log(e.target.id)
         document.querySelectorAll('.error').forEach((error) => {
@@ -35,7 +35,6 @@
                 errors++;
             }
             else if(key == 'item' && document.querySelector(`input[name="${value}"]`) != null) {
-                //console.log(document.querySelector(`input[name="${value}"]`))
                 document.getElementById(key + '-error').classList.remove('hidden');
                 errors++;
             }
@@ -43,11 +42,10 @@
         if (errors == 0) {
             fetch('/records',{method:'post',body: data})
                 .then(response => response.json())
-                .then(json => {})
+                .then(json => records = json)
                 .catch(error => console.error(error));
             document.getElementById('modal').classList.add('hidden');
         }
-
     }
 </script>
 

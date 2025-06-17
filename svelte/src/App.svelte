@@ -6,12 +6,7 @@
   let categories= $state([]);
   let records= $state([]);
 
-  function fetchRecords() {
-
-   }
-
   onMount( function () {
-
     document.getElementById('addItem').addEventListener('click', () => {
       document.getElementById('modal').classList.remove('hidden');
     });
@@ -41,7 +36,7 @@
       <div><input type="button" id="addItem" value="Add Item" /></div>
       <div><input type="button" id="clearChecked" value="Clear Checked" /></div>
   </div>
-  <Records categories={categories} records={records} />  
-  <Modal categories={categories} />
+  <Records categories={categories} bind:records  />  
+  <Modal categories={categories} bind:records />
 </main>
 
