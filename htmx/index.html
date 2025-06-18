@@ -4,10 +4,12 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>HTMX Test</title>
-        <script src="htmx.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="/src/main.css">
+        <script src="/src/htmx.min.js"></script>
         <script>
             function addRecord() {
-                let errors = 0, values = {'price':'', 'count':'', 'item':'', 'category':''}; 
+                let errors = 0;
+                let values = {'price':'', 'count':'', 'item':'', 'category':''}; 
                 htmx.findAll('.error').forEach((e) => htmx.addClass(e, 'hidden'))
 
                 for(key in values) {
@@ -28,7 +30,6 @@
                 }              
             }
         </script>
-        <link rel="stylesheet" type="text/css" href="main.css">
 
     </head>
     <body>

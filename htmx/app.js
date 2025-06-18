@@ -145,7 +145,7 @@ app.get('/clear', async(req, res, next) => {
   }
 });
 
-fs.copyFileSync(__dirname + '/node_modules/htmx.org/dist/htmx.min.js',__dirname + '/public/htmx.min.js');
+fs.copyFileSync(__dirname + '/node_modules/htmx.org/dist/htmx.min.js',__dirname + '/src/htmx.min.js');
 
 ViteExpress.listen(app, port, () => {
     console.log(`Express app listening on port http://localhost:${port}/`)

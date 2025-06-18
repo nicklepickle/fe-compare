@@ -2,25 +2,16 @@
 function Modal() {
   const modal = {
     classes: null,
-    load() {
+    load(categories) {
         modal.classes = document.getElementById('modal').classList;
-        modal.fetchCategories();
+        modal.renderCategories(categories)
+        modal.fetchItems(categories[0].categoryId);
     },
     open() {
         modal.classes.remove('hidden');
     },
     close() {
         modal.classes.add('hidden');
-    },
-    fetchCategories() {
-        fetch('/categories')
-            .then(response => response.json())
-            .then(json => { 
-                modal.categories = json;
-                modal.renderCategories(json)
-                modal.fetchItems(json[0].categoryId);
-            })
-            .catch(error => console.error(error));
     },
     renderCategories(json) {
         const $select = document.getElementById('category');

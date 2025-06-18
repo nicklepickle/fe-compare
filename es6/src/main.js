@@ -8,8 +8,14 @@ const $ = function(q) {
 }
 
 window.addEventListener('load', () => {
-    modal.load();
-    records.load();
+    fetch('/categories')
+        .then(response => response.json())
+        .then(json => { 
+            console.log(JSON.stringify(json))
+            modal.load(json);
+            records.load(json);
+        })
+        .catch(error => console.error(error));
 });
 
 $('#addItem').addEventListener('click', modal.open);

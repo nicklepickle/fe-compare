@@ -1,7 +1,7 @@
 <script>
   import { onMount } from "svelte";
-  import Records from './lib/Records.svelte'
-  import Modal from './lib/Modal.svelte'
+  import Records from './Records.svelte'
+  import Modal from './Modal.svelte'
 
   let categories= $state([]);
   let records= $state([]);

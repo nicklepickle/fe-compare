@@ -26,14 +26,6 @@ if (fs.existsSync(paths.categories)) {
   categories = JSON.parse(fs.readFileSync(paths.categories))
 }
 
-function getCategoryName(id) {
-  for(var i=0; i< categories.length; i++) {
-    if (categories[i].categoryId == id) {
-      return categories[i].category;
-    }
-  }
-}
-
 app.use(express.static(__dirname + '/public'));
 app.use(bp.json());
 app.use(bp.urlencoded({ extended: true }));

@@ -1,17 +1,11 @@
-function Records() {
+function Records(categories) {
   const records = {
     $body: null,
     categories: [],
-    load() {
-        records.$body = document.getElementById('records');
-        fetch('/categories') // annoying that we do this here and in modal
-            .then(response => response.json())
-            .then(json => {
-                records.categories = json;
-                records.fetchRecords();
-            })
-            .catch(error => console.error(error));
-        
+    load(categories) {
+        records.categories = categories;
+        records.$body = document.getElementById('records');     
+        records.fetchRecords()   
     },
     fetchRecords() {
         fetch('/records')
@@ -83,8 +77,7 @@ function Records() {
     
     },
     checkItem(e) {
-        //console.log(e.target.name)
-        //console.log(e.target.checked)
+        //console.log(e.target.name, e.target.checked)
         fetch(`/check?item=${e.target.name}&checked=${e.target.checked}`).catch(error => console.error(error));
     },
     clearChecked() {
