@@ -27,4 +27,4 @@ simple json files. Vite is used to build and develop. vite-express is used to as
 - React - Struggled with coalescing item and category, required more packages, error handling painful
 - HTMX - Server side rendering is cheating a little, no data binding, falling back on js for form validation
 - ES6 - Generating HTML elements comparatively tedious, no data binding
-- Svelte - 
+- Svelte - Hard to use without SvelteKit

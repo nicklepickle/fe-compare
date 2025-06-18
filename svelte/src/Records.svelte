@@ -5,8 +5,22 @@
         fetch(`/check?item=${e.target.name}&checked=${e.target.checked}`).catch(error => console.error(error));
 	}
 
-    function getCategoryRecords(id) {
-        return records.filter((r) => r.category == id)
+    function getCategoryRecords(cats, recs) {
+        // svelte won't let us sort records
+        let catRecords = [] 
+        for(const c of cats) {
+            let catRecs = recs.filter((r) => r.category == c.categoryId);
+            if (catRecs.length > 0) {
+                let cr = catRecords.filter((cr) => cr.categoryId == c.category);
+                if (cr.length == 0) {
+                    catRecords.push({category:c.category, categoryId:c.categoryId, records:catRecs});
+                }
+                else {
+                    cr[0].push({category:c.category, categoryId:c.categoryId, records:catRecs});
+                }
+            }
+        }
+        return catRecords;
     }
 
     function getTotal(recs) {
@@ -26,19 +40,18 @@
         </tr>
     </thead>
     <tbody id="records">
-      {#each categories as category}
-        {#if getCategoryRecords(category.categoryId).length > 0}
+      {#each getCategoryRecords(categories, records) as category}
             <tr>
                 <th class="category" colspan="3">{category.category}</th>
             </tr>
-            {#each getCategoryRecords(category.categoryId) as record}
+            {#each category.records as record}
                 <tr>
                     <td><input type="checkbox" name={record.item} bind:checked={record.checked} onchange={checkItem} class="record-check">{record.item}</td>
                     <td>{record.count}</td>
                     <td>${Number(record.price).toFixed(2)}</td>
                 </tr>
             {/each}
-        {/if}
+
       {/each}
         <tr>
             <td colspan="2" class="total">Total</td>
