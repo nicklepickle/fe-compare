@@ -20,11 +20,23 @@ following criteria:
 - ES6
 
 ## Supporting libraries
-We are not evuating back end. The project will use express to implement API and storate as 
-simple json files. Vite is used to build and develop. vite-express is used to as glue.
+We are not evuating back end. The project will use express to implement the API and simple 
+json files for storage. Vite is used to build and develop. Vite-express is used to as glue.
 
-## Notes
-- React - Struggled with coalescing item and category, required more packages, error handling painful
-- HTMX - Server side rendering is cheating a little, no data binding, falling back on js for form validation
-- ES6 - Generating HTML elements comparatively tedious, no data binding
-- Svelte - Hard to use without SvelteKit
+### React
+- Struggled with coalescing item and category
+- Required more packages
+- Error handling painful
+- Array maps weak solution for loops
+
+### HTMX 
+- Server side rendering is cheating (should use templates)
+- No data binding
+- Fall back on js for form validation
+
+### ES6 
+- Generating HTML elements comparatively tedious
+- no data binding
+
+### Svelte 
+- Hard to use without SvelteKit
