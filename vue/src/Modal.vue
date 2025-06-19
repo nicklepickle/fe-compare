@@ -1,43 +1,80 @@
 <script setup>
 import { ref } from 'vue'
+//import { onMounted } from 'vue'
 
-defineProps({
+const props = defineProps({
   categories: Array,
 })
 
 let items = ref([]);
-getItems('100');
 
 function getItems(category) {
-    console.log(category)
+    //console.log(category)
     fetch('/items?category=' + category)
         .then(response => response.json())
-        .then(json => {items.value = json; console.log(items)})
+        .then(json => {items.value = json })
         .catch(error => console.error(error));
 }
 
-function changeCategory() {
-    var cat = document.getElementById('category').value;
-    getItems(cat);
+function changeCategory(e) {
+    //var cat = document.getElementById('category').value;
+    console.log(e.target.name, e.target.value)
+    getItems(e.target.value);
 }
 
 function closeModal() {
     document.getElementById('modal').classList.add('hidden');
 }
 
-///console.log('categories',categories)
+function addRecord(e) {
+    e.preventDefault();
+    //console.log(e.target.id)
+    document.querySelectorAll('.error').forEach((error) => {
+        error.classList.add('hidden');
+    });
+    const form = document.getElementById(e.target.id);
+    const data = new URLSearchParams(new FormData(form));
+    let errors = 0;
+    data.forEach(function(value, key) {
+        if ((key == 'price' || key == 'count') && !value.match(/[0-9]+/g)) {
+            document.getElementById(key + '-error').classList.remove('hidden');
+            errors++;
+        }
+        else if(key == 'item' && document.querySelector(`input[name="${value}"]`) != null) {
+            document.getElementById(key + '-error').classList.remove('hidden');
+            errors++;
+        }
+    })
+
+    if (errors == 0) {
+        fetch('/records',{method:'post',body: data})
+            .then(response => response.json())
+            .then(json => records = json)
+            .catch(error => console.error(error));
+        document.getElementById('modal').classList.add('hidden');
+    }
+}
+
+/*
+onMounted(() => {
+    //console.log('categories',categories)
+    getItems(categories[0].categoryId);
+});
+*/
+
+getItems('100');
+
 </script>
 
 <template>
-    
 <div class="modal hidden" tabindex="-1" id="modal">
     <div class="modal-body">
         <h2>Add Item</h2>
         <span class="x" @click="closeModal()">X</span>
-        <form id="recordForm" onsubmit={addRecord}>
+        <form id="recordForm" @submit="addRecord">
             <div id="category-container">
                 <label for="category">Category</label>
-                <select class="form-input" name="category" id="category" @change="changeCategory()">
+                <select class="form-input" name="category" id="category" @change="changeCategory">
                     <option v-for="(category, index) in categories" :value="category.categoryId">{{category.category}}</option>
                 </select>
             </div>

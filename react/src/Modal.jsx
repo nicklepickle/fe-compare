@@ -47,7 +47,7 @@ function Modal({categories, setRecords}) {
         }     
     }
 
-    useEffect(() => {fetchItems('100')}, []);
+    useEffect(() => {fetchItems('100')}, []); // should use first category id in categories
 
 
   return (

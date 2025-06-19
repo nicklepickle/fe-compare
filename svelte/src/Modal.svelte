@@ -4,7 +4,7 @@
     let items = $state([]);
 
     onMount( function () {
-        fetchItems('100');
+        fetchItems('100'); // should use first category id in categories
         document.querySelector('.x').addEventListener('click', () => 
             document.getElementById('modal').classList.add('hidden'));
     })

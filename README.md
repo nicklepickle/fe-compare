@@ -28,15 +28,26 @@ json files for storage. Vite is used to build and develop. Vite-express is used 
 - Required more packages
 - Error handling painful
 - Array maps weak solution for loops
+- useEffect usage
 
 ### HTMX 
 - Server side rendering is cheating (should use templates)
 - No data binding
+- Examples hard to find online
 - Fall back on js for form validation
++ Very terse
 
 ### ES6 
 - Generating HTML elements comparatively tedious
-- no data binding
+- No data binding
++ Only vesion to get initial items call correct (all others rely on hard coded 100)
++ Most granular control over data flow
 
 ### Svelte 
 - Hard to use without SvelteKit
+- False positive errors in vscode editor (fixable but annoying)
++ :bind makes it very clear which state values can be updated by children
+
+### Vue
+- v-model a little cryptic
+- component lifecycle confusing

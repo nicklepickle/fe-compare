@@ -10,6 +10,11 @@ function getTotal(recs) {
     return recs.reduce((total, rec) => {return total + (Number(rec.price) * Number(rec.count))}, 0)
 }
 
+function checkItem(e) {
+    console.log(e.target.name, e.target.checked)
+    fetch(`/check?item=${e.target.name}&checked=${e.target.checked}`).catch(error => console.error(error));
+}
+
 </script>
 
 <template>
@@ -23,7 +28,7 @@ function getTotal(recs) {
     </thead>
     <tbody id="records" >
         <tr v-for="(record, index) in records">
-            <td><input type="checkbox" name={{record.item}}  class="record-check">{{record.item}}</td>
+            <td><input type="checkbox" :name="record.item" v-model="record.checked" @change="checkItem">{{record.item}}</td>
             <td>{{record.count}}</td>
             <td>${{Number(record.price).toFixed(2)}}</td>
         </tr>
