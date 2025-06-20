@@ -42,9 +42,11 @@
         if (errors == 0) {
             fetch('/records',{method:'post',body: data})
                 .then(response => response.json())
-                .then(json => records = json)
+                .then(json => {
+                    records = json; 
+                    document.getElementById('modal').classList.add('hidden');
+                })
                 .catch(error => console.error(error));
-            document.getElementById('modal').classList.add('hidden');
         }
     }
 </script>

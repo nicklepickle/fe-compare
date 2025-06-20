@@ -62,9 +62,9 @@ function Modal() {
         if (errors == 0) {
             fetch('/records',{method:'post',body: data})
                 .then(response => response.json())
-                .then(json => {success()})
+                .then(json => {success(); modal.close();})
                 .catch(error => console.error(error));
-            modal.close();
+            
         }
 
     },

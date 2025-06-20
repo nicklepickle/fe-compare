@@ -7,9 +7,9 @@ const __dirname = import.meta.dirname;
 const app = express();
 const port  = 8001;
 const paths = {
-  records: __dirname + "/json/records.json",
-  categories: __dirname + "/json/categories.json",
-  items: __dirname + "/json/items.json"
+  records: __dirname + "/../json/records.json",
+  categories: __dirname + "/../json/categories.json",
+  items: __dirname + "/../json/items.json"
 }
 
 let records = [];
