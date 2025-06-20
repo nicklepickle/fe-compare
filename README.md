@@ -8,6 +8,7 @@ displaying records and a modal dialog to add a record. We will evaluate librarie
 following criteria:
 
 - Market Share (use of library, developer availability, age of project)
+- Modularity (how much does each component need to know about children, parents?)
 - Performance (page load, memory usage, dynamic request speed/size)
 - Portability (deviation from web standards, non-portable concepts/syntax)
 - Maintainability (lines of code, release stability, number of dependencies, documentation)
@@ -29,6 +30,7 @@ json files for storage. Vite is used to build and develop. Vite-express is used 
 - Error handling painful
 - Array maps weak solution for loops
 - useEffect usage
+- Needed two components to render records
 
 ### HTMX 
 - Server side rendering is cheating (should use templates)
@@ -50,4 +52,4 @@ json files for storage. Vite is used to build and develop. Vite-express is used 
 
 ### Vue
 - v-model a little cryptic
-- component lifecycle confusing
+- Needed two components to render records

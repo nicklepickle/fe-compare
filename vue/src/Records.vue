@@ -1,6 +1,6 @@
 <script setup>
 import { ref } from 'vue'
-
+import Category from './Category.vue'
 defineProps({
   categories: Array,
   records: Array
@@ -15,6 +15,23 @@ function checkItem(e) {
     fetch(`/check?item=${e.target.name}&checked=${e.target.checked}`).catch(error => console.error(error));
 }
 
+function getCategoryRecords(cats, recs) {
+    let catRecords = [] 
+    for(const c of cats) {
+        let catRecs = recs.filter((r) => r.category == c.categoryId);
+        if (catRecs.length > 0) {
+            let cr = catRecords.filter((cr) => cr.categoryId == c.category);
+            if (cr.length == 0) {
+                catRecords.push({category:c.category, categoryId:c.categoryId, records:catRecs});
+            }
+            else {
+                cr[0].push({category:c.category, categoryId:c.categoryId, records:catRecs});
+            }
+        }
+    }
+    return catRecords;
+}
+
 </script>
 
 <template>
@@ -27,17 +44,11 @@ function checkItem(e) {
         </tr>
     </thead>
     <tbody id="records" >
-        <tr v-for="(record, index) in records">
-            <td><input type="checkbox" :name="record.item" v-model="record.checked" @change="checkItem">{{record.item}}</td>
-            <td>{{record.count}}</td>
-            <td>${{Number(record.price).toFixed(2)}}</td>
-        </tr>
-
+        <Category  v-for="(cat, index) in getCategoryRecords(categories, records)" :category="cat.category" :records="cat.records" />
         <tr>
             <td colspan="2" class="total">Total</td>
             <td class="total">${{Number(getTotal(records)).toFixed(2)}}</td>
         </tr>
-
     </tbody>
 </table>
 
@@ -48,33 +59,6 @@ function checkItem(e) {
     border-collapse:collapse;
     width:400px;
     margin-top:10px;
-}
-
-.records tr > td:last-of-type {
-    text-align:right;
-}
-
-.records tr > th:last-of-type {
-    text-align: right;
-}
-
-.records td { 
-    border:1px solid #777;
-    padding:4px;
-    font-size:14px;
-}
-
-.records th { 
-    border-bottom:1px solid #777;
-    padding-top: 10px;
-    text-align:left;
-    font-size:14px;
-}
-
-.records th.category {
-    font-weight:normal;
-    font-size:18px;
-    text-align:left !important;
 }
 
 .records td.total {

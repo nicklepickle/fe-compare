@@ -4,6 +4,7 @@ import { ref } from 'vue'
 
 const props = defineProps({
   categories: Array,
+  setRecords: Function
 })
 
 let items = ref([]);
@@ -17,8 +18,7 @@ function getItems(category) {
 }
 
 function changeCategory(e) {
-    //var cat = document.getElementById('category').value;
-    console.log(e.target.name, e.target.value)
+    //console.log(e.target.name, e.target.value)
     getItems(e.target.value);
 }
 
@@ -49,20 +49,20 @@ function addRecord(e) {
     if (errors == 0) {
         fetch('/records',{method:'post',body: data})
             .then(response => response.json())
-            .then(json => records = json)
+            .then(json => props.setRecords(json))
             .catch(error => console.error(error));
         document.getElementById('modal').classList.add('hidden');
     }
 }
 
-/*
-onMounted(() => {
-    //console.log('categories',categories)
-    getItems(categories[0].categoryId);
-});
-*/
 
-getItems('100');
+//onMounted(() => {
+    //console.log('categories',categories)
+    //getItems(categories[0].categoryId);
+//});
+
+
+getItems('100'); // should use first category id in categories
 
 </script>
 
