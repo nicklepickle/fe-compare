@@ -3,12 +3,10 @@ import { ErrorBoundary } from "react-error-boundary";
 import Records from './Records.jsx'
 import Modal from './Modal.jsx'
 
-function Fallback({ error, resetErrorBoundary }) {
-  // Call resetErrorBoundary() to reset the error boundary and retry the render.
-
+function Fallback({error}) {
   return (
     <div role="alert">
-      <p>Something went wrong:</p>
+      <p class="error">Error:</p>
       <pre style={{ color: "red" }}>{error.message}</pre>
     </div>
   );
@@ -51,13 +49,14 @@ function App() {
       <h2>React Test</h2>
       <div className="flex controls">
           <div><input type="button" value="Add Item" onClick={() => {
-            document.getElementById('modal').classList.toggle('hidden');
+            // main shouldn't have to know how to open. wish it was Modal.open()
+            document.getElementById('modal').classList.remove('hidden');
           }} /></div>
           <div><input type="button" value="Clear Checked" onClick={clearChecked} /></div>
       </div>
       
       <ErrorBoundary  onError={console.error} FallbackComponent={Fallback} >
-        <Records categories={categories}  setRecords={setRecords} records={records} />
+        <Records categories={categories} records={records} />
         <Modal categories={categories} setRecords={setRecords} />
       </ErrorBoundary>
     </>

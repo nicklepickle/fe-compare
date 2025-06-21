@@ -49,14 +49,15 @@ function Modal() {
         }      
     },
     addRecord(e) {
+        const $form = document.getElementById(e.target.id);
+        const data = new URLSearchParams(new FormData($form));
+        let errors = 0;
+
         e.preventDefault();
         document.querySelectorAll('.error').forEach((error) => {
             error.classList.add('hidden');
         });
-        
-        const $form = document.getElementById(e.target.id);
-        const data = new URLSearchParams(new FormData($form));
-        let errors = 0;
+
         data.forEach(function(value, key) {
             if ((key == 'price' || key == 'count') && !value.match(/[0-9]+/g)) {
                 document.getElementById(key + '-error').classList.remove('hidden');

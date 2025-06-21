@@ -42,6 +42,7 @@ json files for storage. Vite is used to build and develop. Vite-express is used 
 ### ES6 
 - Generating HTML elements comparatively tedious
 - No data binding
+- Great modularity for js, bad modularity for html/css
 + Only vesion to get initial items call correct (all others rely on hard coded 100)
 + Most granular control over data flow
 
