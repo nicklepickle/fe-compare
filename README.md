@@ -25,7 +25,7 @@ We are not evuating back end. The project will use express to implement the API 
 json files for storage. Vite is used to build and develop. Vite-express is used to as glue.
 
 ### React
-- Struggled with coalescing item and category
+- Struggled with coalescing item and category 
 - Required more packages
 - Error handling painful
 - Array maps weak solution for loops
@@ -57,3 +57,7 @@ json files for storage. Vite is used to build and develop. Vite-express is used 
 - v-model a little cryptic
 - Needed two components to render records
 + Great modularity all around
+
+## Solid
+- Needed two components to render records
++ quickest to implement (copied react templates)

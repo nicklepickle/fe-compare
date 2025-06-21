@@ -1,4 +1,5 @@
 import './Records.css'
+import Category from './Category.jsx'
 import { For } from 'solid-js';
 
 function Records({ categories, records }) {
@@ -39,30 +40,9 @@ function Records({ categories, records }) {
             <tbody>
                 <For each={getCategoryRecords(categories(),records())}>
                     {(cat) => (
-                        <tr><th colSpan="3" className="category">{cat.category} </th>
-                        <For each={cat.records}>
-                            {(rec) => (
-                            <tr>
-                                <td><input type="checkbox" name={rec.item}  checked={rec.checked}></input>{rec.item}</td>
-                                <td>{rec.count}</td>
-                                <td>${rec.price}</td>
-                            </tr>
-                            )}
-                        </For>
-                        </tr>
+                        <Category records={cat.records} category={cat.category} />
                     )}
                 </For>
-                {/*}
-                <For each={records()}>
-                    {(rec) => (
-                    <tr>
-                        <td><input type="checkbox" name={rec.item}  checked={rec.checked}></input>{rec.item}</td>
-                        <td>{rec.count}</td>
-                        <td>${rec.price}</td>
-                    </tr>
-                    )}
-                </For>
-                */}
                 <tr>
                     <td colSpan="2" className="total">Total</td>
                     <td className="total">${getTotal(records()).toFixed(2)}</td>

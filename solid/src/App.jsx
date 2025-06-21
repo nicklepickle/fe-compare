@@ -1,7 +1,6 @@
 import { createSignal } from 'solid-js'
 import Records from './Records.jsx'
 import Modal from './Modal.jsx'
-//import viteLogo from '/vite.svg'
 import './App.css'
 
 function App() {
@@ -9,7 +8,6 @@ function App() {
   const [categories, setCategories] = createSignal([])
 
   function clearChecked(e) {
-      //console.log(e.target.name, e.target.checked)
       fetch('/clear')
         .then(response => response.json())
         .then(json => {setRecords(json) })
