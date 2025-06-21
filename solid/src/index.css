@@ -1,0 +1,38 @@
+body {
+    font-family:sans-serif;
+}
+
+h2 {
+    font-weight: normal;
+}
+
+.flex {
+    display:flex;
+}
+
+.flex div {
+    width:50%;
+}
+
+.flex div input {
+    width: 130px; 
+}
+
+.controls {
+    width:400px;
+}
+
+.controls > div:last-of-type {
+    text-align:right;
+}
+
+input[type=button],input[type=submit]  {
+    padding: 6px;
+    background-color: #337ab7;
+    color: #fff;
+    border: 1px solid #2e6da4;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    width:130px;
+}
