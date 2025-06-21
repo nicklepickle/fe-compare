@@ -31,6 +31,7 @@ json files for storage. Vite is used to build and develop. Vite-express is used 
 - Array maps weak solution for loops
 - useEffect usage
 - Needed two components to render records
++ Good modularity for html/js, css may leak a little?
 
 ### HTMX 
 - Server side rendering is cheating (should use templates)
@@ -49,8 +50,10 @@ json files for storage. Vite is used to build and develop. Vite-express is used 
 ### Svelte 
 - Hard to use without SvelteKit
 - False positive errors in vscode editor (fixable but annoying)
+- Component life cycle confusing (when can are props populated?)
 + :bind makes it very clear which state values can be updated by children
 
 ### Vue
 - v-model a little cryptic
 - Needed two components to render records
++ Great modularity all around

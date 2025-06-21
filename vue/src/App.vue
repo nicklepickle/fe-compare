@@ -8,6 +8,7 @@ let records = ref([]);
 let categories = ref([]);
 
 function openModal() {
+  // shouldn't have to know the internals
   document.getElementById('modal').classList.remove('hidden');
 }
 

@@ -35,7 +35,7 @@
     <body>
         <h2>HTMX Test</h2>
         <div class="flex controls">
-            <div><input type="button" hx-on:click="htmx.toggleClass(htmx.find('.modal'),'hidden')" value="Add Item" /></div>
+            <div><input type="button" hx-on:click="htmx.removeClass(htmx.find('.modal'),'hidden')" value="Add Item" /></div>
             <div><input type="button" hx-get="/clear" hx-target="#records" value="Clear Checked" /></div>
         </div>
         <div hx-get="/records" hx-trigger="load" id="records"></div>
@@ -44,7 +44,7 @@
         <div class="modal hidden" tabindex="-1" id="modal">
             <div class="modal-body">
                 <h2>Add Item</h2>
-                <a hx-on:click="htmx.toggleClass(htmx.find('.modal'),'hidden')" class="x">X</a>
+                <a hx-on:click="htmx.addClass(htmx.find('.modal'),'hidden')" class="x">X</a>
                 <form id="recordForm">
                     <div id="category-container" hx-get="/categories" hx-trigger="load"></div>
                     <div id="item-container" hx-get="/items?category=100" hx-trigger="load"></div>
