@@ -7,13 +7,13 @@ import './App.css'
 function App() {
   const [records, setRecords] = createSignal([])
   const [categories, setCategories] = createSignal([])
+
   function clearChecked(e) {
-      console.log(e.target.name, e.target.checked)
+      //console.log(e.target.name, e.target.checked)
       fetch('/clear')
         .then(response => response.json())
         .then(json => {setRecords(json) })
         .catch(error => console.error(error));
-
   }
 
   function fetchCategories() {
