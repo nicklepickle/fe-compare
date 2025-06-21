@@ -1,11 +1,20 @@
-
 function Modal() {
   const modal = {
+    postRecord: function(data) {},
     classes: null,
-    load(categories) {
+    load(categories, postRecord) {
+        modal.postRecord = postRecord;
         modal.classes = document.getElementById('modal').classList;
         modal.renderCategories(categories)
         modal.fetchItems(categories[0].categoryId);
+        document.querySelector('.x').addEventListener('click', modal.close);
+        document.getElementById('category').addEventListener('change', (e) => {
+            modal.fetchItems(e.target.value)
+        });
+        document.getElementById('recordForm').addEventListener('submit', (e) => {
+            modal.addRecord(e)
+        });
+        console.log('modal loaded')
     },
     open() {
         modal.classes.remove('hidden');
@@ -39,12 +48,12 @@ function Modal() {
             $select.append(opt);
         }      
     },
-    addRecord(e, success) {
+    addRecord(e) {
         e.preventDefault();
-        //console.log(e.target.id)
         document.querySelectorAll('.error').forEach((error) => {
             error.classList.add('hidden');
         });
+        
         const $form = document.getElementById(e.target.id);
         const data = new URLSearchParams(new FormData($form));
         let errors = 0;
@@ -60,13 +69,8 @@ function Modal() {
             }
         })
         if (errors == 0) {
-            fetch('/records',{method:'post',body: data})
-                .then(response => response.json())
-                .then(json => {success(); modal.close();})
-                .catch(error => console.error(error));
-            
+            modal.postRecord(data)
         }
-
     },
   }
   return modal;

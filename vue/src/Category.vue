@@ -4,8 +4,13 @@ import { ref } from 'vue'
 
 const props = defineProps({
   category: String,
-  records: Function
+  records: Array
 })
+
+function checkItem(e) {
+    console.log(e.target.name, e.target.checked)
+    fetch(`/check?item=${e.target.name}&checked=${e.target.checked}`).catch(error => console.error(error));
+}
  </script>
  
  <template>

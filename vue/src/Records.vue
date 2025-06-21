@@ -10,11 +10,6 @@ function getTotal(recs) {
     return recs.reduce((total, rec) => {return total + (Number(rec.price) * Number(rec.count))}, 0)
 }
 
-function checkItem(e) {
-    console.log(e.target.name, e.target.checked)
-    fetch(`/check?item=${e.target.name}&checked=${e.target.checked}`).catch(error => console.error(error));
-}
-
 function getCategoryRecords(cats, recs) {
     let catRecords = [] 
     for(const c of cats) {
