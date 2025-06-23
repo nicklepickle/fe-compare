@@ -39,14 +39,10 @@ function checkItem(e) {
     font-size:14px;
 }
 
-.records th { 
-    border-bottom:1px solid #777;
-    padding-top: 10px;
-    text-align:left;
-    font-size:14px;
-}
 
 .records th.category {
+    padding-top: 10px;
+    text-align:left;
     font-weight:normal;
     font-size:18px;
     text-align:left !important;

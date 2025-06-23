@@ -27,8 +27,8 @@ function toggleDark() {
 
 window.addEventListener('load', () => {
     let c = Cookie.getCookie('_fe-c');
-    if (c && JSON.parse(c).colorScheme == 'dark') {
-        document.querySelector(":root").style.setProperty('color-scheme', 'dark')
+    if (c) {
+        document.querySelector(":root").style.setProperty('color-scheme', JSON.parse(c).colorScheme)
     }
     fetch('/categories')
         .then(response => response.json())

@@ -98,6 +98,6 @@
 .records td.total {
     padding-top: 10px;
     font-weight:bold;
-    border:1px solid #FFF;
+    border-width:0px;
 }
 </style>

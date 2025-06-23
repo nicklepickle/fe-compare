@@ -1,38 +1,57 @@
 import { createSignal } from 'solid-js'
 import Records from './Records.jsx'
 import Modal from './Modal.jsx'
+import Cookie from './cookie.js'
 
 function App() {
-  const [records, setRecords] = createSignal([])
-  const [categories, setCategories] = createSignal([])
+    const [records, setRecords] = createSignal([])
+    const [categories, setCategories] = createSignal([])
 
-  function clearChecked(e) {
-      fetch('/clear')
-        .then(response => response.json())
-        .then(json => {setRecords(json) })
-        .catch(error => console.error(error));
-  }
+    const clearChecked = async (e) => {
+        await fetch('/clear')
+          .then(response => response.json())
+          .then(json => {setRecords(json) })
+          .catch(error => console.error(error));
+    }
 
-  function fetchCategories() {
-      fetch('/categories')
-        .then(response => response.json())
-        .then(json => {setCategories(json)  })
-        .catch(error => console.error(error));   
-  }
+    const fetchRecords = async() => {
+        await fetch('/records')
+            .then(response => response.json())
+            .then(json => {setRecords(json) })
+            .catch(error => console.error(error));   
+    }
 
-  function fetchRecords() {
-      fetch('/records')
-        .then(response => response.json())
-        .then(json => {setRecords(json) })
-        .catch(error => console.error(error));   
-  }
+    const fetchCategories = async() => {
+        await fetch('/categories')
+            .then(response => response.json())
+            .then(json => {setCategories(json)  })
+            .catch(error => console.error(error));   
+    }
 
-  fetchCategories();
-  fetchRecords();
+    const toggleDark = () => {
+        const root = document.querySelector(":root");
+        let colorScheme = root.style.getPropertyValue('color-scheme');
+        colorScheme = (colorScheme == 'dark' ? 'light' : 'dark');
+        root.style.setProperty('color-scheme', colorScheme)
+        let value = JSON.stringify({colorScheme:colorScheme});
 
-  return (
+        Cookie.setCookie('_fe-c', value) 
+    }
+
+    fetchCategories();
+    fetchRecords();
+    
+    let c = Cookie.getCookie('_fe-c');
+    if (c) {
+        document.querySelector(":root").style.setProperty('color-scheme', JSON.parse(c).colorScheme)
+    }
+
+    return (
     <>
-      <h2>Solid Test</h2>
+      <div class="flex controls">
+          <div><h2>Solid Test</h2></div>
+          <div id="dark-toggle"><a onClick={toggleDark}>&#9681;</a></div>
+      </div>
       <div className="flex controls">
           <div><input type="button" value="Add Item" onClick={() => {
             // main shouldn't have to know how to open. wish it was Modal.open()

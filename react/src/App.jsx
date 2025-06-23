@@ -2,29 +2,27 @@ import { useState, useEffect } from 'react';
 import { ErrorBoundary } from "react-error-boundary";
 import Records from './Records.jsx'
 import Modal from './Modal.jsx'
+import Cookie from './cookie.js'
 
 function Fallback({error}) {
   return (
-    <div role="alert">
-      <p class="error">Error:</p>
-      <pre style={{ color: "red" }}>{error.message}</pre>
+    <div>
+      <h3>Error</h3>
+      <pre class="error">{error.message}</pre>
     </div>
   );
 }
 
 function App() {
-    function clearChecked(e) {
-        console.log(e.target.name, e.target.checked)
-        fetch('/clear')
-        .then(response => response.json())
-        .then(json => {setRecords(json) })
-        .catch(error => console.error(error));
-
-    }
-
     const [records, setRecords] = useState([]);
     const [categories, setCategories] = useState([]);
 
+    const clearChecked = async (e) => {
+        await fetch('/clear')
+          .then(response => response.json())
+          .then(json => {setRecords(json) })
+          .catch(error => console.error(error));
+    }
 
     const fetchRecords = async() => {
         await fetch('/records')
@@ -40,13 +38,29 @@ function App() {
             .catch(error => console.error(error));   
     }
 
+    const toggleDark = () => {
+        const root = document.querySelector(":root");
+        let colorScheme = root.style.getPropertyValue('color-scheme');
+        colorScheme = (colorScheme == 'dark' ? 'light' : 'dark');
+        root.style.setProperty('color-scheme', colorScheme)
+        let value = JSON.stringify({colorScheme:colorScheme});
+
+        Cookie.setCookie('_fe-c', value) 
+    }
+
     useEffect(() => {fetchRecords()}, []);
     useEffect(() => {fetchCategories()}, []);
 
-
+    let c = Cookie.getCookie('_fe-c');
+    if (c) {
+        document.querySelector(":root").style.setProperty('color-scheme', JSON.parse(c).colorScheme)
+    }
   return (
     <>
-      <h2>React Test</h2>
+      <div class="flex controls">
+          <div><h2>React Test</h2></div>
+          <div id="dark-toggle"><a onClick={toggleDark}>&#9681;</a></div>
+      </div>
       <div className="flex controls">
           <div><input type="button" value="Add Item" onClick={() => {
             // main shouldn't have to know how to open. wish it was Modal.open()

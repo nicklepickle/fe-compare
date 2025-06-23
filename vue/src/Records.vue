@@ -59,6 +59,23 @@ function getCategoryRecords(cats, recs) {
 .records td.total {
     padding-top: 10px;
     font-weight:bold;
-    border:1px solid #FFF;
+    border-width:0px;
+    font-size:14px;
 }
+
+.records th { 
+    border-bottom:1px solid #777;
+    padding-top: 10px;
+    text-align:left;
+    font-size:14px;
+}
+
+.records tr > th:last-of-type {
+    text-align: right;
+}
+
+.records tr > td:last-of-type {
+    text-align:right;
+}
+
 </style>

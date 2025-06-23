@@ -8,12 +8,10 @@
         <script src="/src/htmx.min.js"></script>
         <script src="/src/cookie.js"></script>
         <script>
-            window.addEventListener('load',() =>{
-                let c = Cookie.getCookie('_fe-c');
-                if (c && JSON.parse(c).colorScheme == 'dark') {
-                    document.querySelector(":root").style.setProperty('color-scheme', 'dark')
-                }
-            });
+            let c = Cookie.getCookie('_fe-c');
+            if (c) {
+                htmx.find(":root").style.setProperty('color-scheme', JSON.parse(c).colorScheme)
+            }
 
             function toggleDark() {
                 const root = htmx.find(":root");
@@ -21,6 +19,7 @@
                 colorScheme = (colorScheme == 'dark' ? 'light' : 'dark');
                 root.style.setProperty('color-scheme', colorScheme)
                 let value = JSON.stringify({colorScheme:colorScheme});
+                console.log('toggleDark', value)
                 Cookie.setCookie('_fe-c', value)
             }
 
