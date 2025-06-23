@@ -1,7 +1,6 @@
 import { createSignal } from 'solid-js'
 import Records from './Records.jsx'
 import Modal from './Modal.jsx'
-import './App.css'
 
 function App() {
   const [records, setRecords] = createSignal([])

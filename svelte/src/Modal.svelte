@@ -108,7 +108,7 @@
 }
 
 .modal-body {
-    background-color: #fefefe;
+    background-color: light-dark(#FFF, #333);
     margin: 150px auto;
     padding: 20px;
     border: 1px solid #888;
@@ -126,8 +126,8 @@
 }
 
 .x {
-    color: #05b;
-    border: 1px solid #05b;
+    color: light-dark(#05b, #0af);
+    border: 1px solid light-dark(#05b, #0af);
     padding: 2px 6px;
     cursor: pointer;
     float: right;

@@ -23,15 +23,12 @@ function toggleDark() {
     let value = JSON.stringify({colorScheme:colorScheme});
 
     Cookie.setCookie('_fe-c', value)
-
 }
 
 window.addEventListener('load', () => {
     let c = Cookie.getCookie('_fe-c');
-    if (c) {
-        if (JSON.parse(c).colorScheme == 'dark') {
-            document.querySelector(":root").style.setProperty('color-scheme', 'dark')
-        }
+    if (c && JSON.parse(c).colorScheme == 'dark') {
+        document.querySelector(":root").style.setProperty('color-scheme', 'dark')
     }
     fetch('/categories')
         .then(response => response.json())

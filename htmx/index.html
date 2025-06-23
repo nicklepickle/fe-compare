@@ -6,7 +6,24 @@
         <title>HTMX Test</title>
         <link rel="stylesheet" type="text/css" href="/src/main.css">
         <script src="/src/htmx.min.js"></script>
+        <script src="/src/cookie.js"></script>
         <script>
+            window.addEventListener('load',() =>{
+                let c = Cookie.getCookie('_fe-c');
+                if (c && JSON.parse(c).colorScheme == 'dark') {
+                    document.querySelector(":root").style.setProperty('color-scheme', 'dark')
+                }
+            });
+
+            function toggleDark() {
+                const root = htmx.find(":root");
+                let colorScheme = root.style.getPropertyValue('color-scheme');
+                colorScheme = (colorScheme == 'dark' ? 'light' : 'dark');
+                root.style.setProperty('color-scheme', colorScheme)
+                let value = JSON.stringify({colorScheme:colorScheme});
+                Cookie.setCookie('_fe-c', value)
+            }
+
             function addRecord() {
                 let errors = 0;
                 let values = {'price':'', 'count':'', 'item':'', 'category':''}; 
@@ -29,11 +46,17 @@
                     htmx.toggleClass(htmx.find('.modal'),'hidden');
                 }              
             }
+
         </script>
 
     </head>
     <body>
-        <h2>HTMX Test</h2>
+        <div class="flex controls">
+            <div><h2>HTMX Test</h2></div>
+            <div id="dark-toggle">
+                <a hx-on:click="toggleDark()">&#9681;</a>
+            </div>
+        </div>
         <div class="flex controls">
             <div><input type="button" hx-on:click="htmx.removeClass(htmx.find('.modal'),'hidden')" value="Add Item" /></div>
             <div><input type="button" hx-get="/clear" hx-target="#records" value="Clear Checked" /></div>
