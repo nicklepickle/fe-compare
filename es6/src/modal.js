@@ -14,7 +14,7 @@ function Modal() {
         document.getElementById('recordForm').addEventListener('submit', (e) => {
             modal.addRecord(e)
         });
-        console.log('modal loaded')
+
     },
     open() {
         modal.classes.remove('hidden');
