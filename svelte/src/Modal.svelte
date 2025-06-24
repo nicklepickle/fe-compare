@@ -151,8 +151,8 @@ label {
 }
 
 .error {
-    color: #900;
-    font-size: 12px;
+    color: light-dark(#900, #F33);
+    font-size: 13px;
 }
 
 .hidden {

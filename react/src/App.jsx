@@ -8,7 +8,7 @@ function Fallback({error}) {
   return (
     <div>
       <h3>Error</h3>
-      <pre class="error">{error.message}</pre>
+      <pre className="error">{error.message}</pre>
     </div>
   );
 }
@@ -57,7 +57,7 @@ function App() {
     }
   return (
     <>
-      <div class="flex controls">
+      <div className="flex controls">
           <div><h2>React Test</h2></div>
           <div id="dark-toggle"><a onClick={toggleDark}>&#9681;</a></div>
       </div>

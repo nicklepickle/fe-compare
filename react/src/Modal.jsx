@@ -16,7 +16,7 @@ function Modal({categories, setRecords}) {
 
     const categoryChanged = function(e) {
         //console.log('changed to ', e.target.value)
-        fetchItems(e.target.value); //nice!
+        fetchItems(e.target.value); 
     }
 
     const handleSubmit = function(e) {
@@ -46,6 +46,7 @@ function Modal({categories, setRecords}) {
                 .catch(error => console.error(error));  
         }     
     }
+
 
     useEffect(() => {fetchItems('100')}, []); // should use first category id in categories
 

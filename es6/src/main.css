@@ -148,7 +148,6 @@ label {
 }
 
 .x {
-
     color: light-dark(#05b, #0af);
     border: 1px solid light-dark(#05b, #0af);
     padding: 2px 6px;
@@ -164,8 +163,8 @@ label {
 }
 
 .error {
-    color: #900;
-    font-size: 12px;
+    color: light-dark(#900, #F33);
+    font-size: 13px;
 }
 
 .hidden {
