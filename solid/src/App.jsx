@@ -52,7 +52,7 @@ function App() {
           <div><h2>Solid Test</h2></div>
           <div id="dark-toggle"><a onClick={toggleDark}>&#9681;</a></div>
       </div>
-      <div className="flex controls">
+      <div class="flex controls">
           <div><input type="button" value="Add Item" onClick={() => {
             // main shouldn't have to know how to open. wish it was Modal.open()
             document.getElementById('modal').classList.remove('hidden');

@@ -21,10 +21,11 @@ simple json files for storage. Vite is used to build and develop. Vite-express i
 
 ### React
 - Required more packages/dependencies
-- Error handling painful
+- Error handling painful at first
 - Array maps weak solution for loops
-- useEffect usage
+- JSX requires alternate html attributes to avoid naming conflicts with JavaScript keywords
 - Needed two components to render records
++ Hooks are improvement over class components
 + Good modularity for html/js, css may leak a little?
 + High market share
 
@@ -33,7 +34,7 @@ simple json files for storage. Vite is used to build and develop. Vite-express i
 - No data binding
 - Examples hard to find online, small market share
 - Fall back on js for form validation
-- No seperation of concerns (backed knows css!)
+- Need to implement templating library
 + Very terse
 + No dependencies other than htmx
 
@@ -47,9 +48,9 @@ simple json files for storage. Vite is used to build and develop. Vite-express i
 + No dependencies
 
 ### Svelte 
-- Hard to use without SvelteKit
+- Opinionated about SvelteKit (harded to use without)
 - False positive errors in vscode editor (fixable but annoying)
-- Component life cycle confusing (when can are props populated?)
+- Component life cycle confusing (when are props populated?)
 - Smaller market share
 + :bind makes it very clear which state values can be updated by children
 + Only dev dependencies
@@ -58,12 +59,15 @@ simple json files for storage. Vite is used to build and develop. Vite-express i
 - v-model a little cryptic
 - Needed two components to render records
 - Decent market share
+- Took longest to implement (ran into issue that stumped copilot)
 + Great modularity all around
 + Only dev dependencies
 
 ### Solid
 - Needed two components to render records
+- Smaller market share
 + By using jsx can piggyback on react market share
 + quickest to implement (copied react templates)
 + Only dev dependencies
 + Good modularity for html/js, css may leak a little? (like react)
++ JSX does not require alternate html attributes for JavaScript keywords

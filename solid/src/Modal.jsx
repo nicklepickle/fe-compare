@@ -50,14 +50,14 @@ function Modal({categories, setRecords}) {
 
     return (
     <>
-<div className="modal hidden" tabIndex="-1" id="modal">
-    <div className="modal-body">
+<div class="modal hidden" tabIndex="-1" id="modal">
+    <div class="modal-body">
         <h2>Add Item</h2>
-        <a className="x" onClick={closeModal}>X</a>
+        <a class="x" onClick={closeModal}>X</a>
         <form id="recordForm" onSubmit={handleSubmit}>
             <div id="category-container">
-                <label htmlFor="category">Category</label>
-                <select className="form-input" name="category" id="category" onChange={categoryChanged}>
+                <label for="category">Category</label>
+                <select class="form-input" name="category" id="category" onChange={categoryChanged}>
                     <For each={categories()}>
                         {category => (
                             <option value={category.categoryId}>{category.category}</option>
@@ -66,26 +66,26 @@ function Modal({categories, setRecords}) {
                 </select>
             </div>
             <div id="item-container">
-                <label htmlFor="item">Item</label>
-                <select className="form-input" name="item" id="item">
+                <label for="item">Item</label>
+                <select class="form-input" name="item" id="item">
                     <For each={items()}>
                         {item => (
                             <option value={item.nameSpecific}>{item.nameSpecific}</option>
                         )}
                     </For>
                 </select>
-                <span className="error hidden" id="item-error">Item already added</span>
+                <span class="error hidden" id="item-error">Item already added</span>
             </div>
-            <div className="flex">
+            <div class="flex">
                 <div>
-                    <label htmlFor="count">Count</label>
-                    <input type="number" name="count" id="count" className="form-input"/>
-                    <span className="error hidden" id="count-error">Count must be numeric</span>
+                    <label for="count">Count</label>
+                    <input type="number" name="count" id="count" class="form-input"/>
+                    <span class="error hidden" id="count-error">Count must be numeric</span>
                 </div>
                 <div>
-                    <label htmlFor="price">Price</label>
-                    <input type="number" name="price" id="price" className="form-input"/>
-                    <span className="error hidden" id="price-error">Price must be numeric</span>
+                    <label for="price">Price</label>
+                    <input type="number" name="price" id="price" class="form-input"/>
+                    <span class="error hidden" id="price-error">Price must be numeric</span>
                 </div>
             </div>
             <div>

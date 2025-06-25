@@ -1,11 +1,8 @@
 function Category({categoryRecords}) {
     function checkItem(e) {
-        console.log(e.target.name, e.target.checked)
+        //console.log(e.target.name, e.target.checked)
         fetch(`/check?item=${e.target.name}&checked=${e.target.checked}`)
-            .then(response => response.json())
-            //.then(json => {setRecords(json) })
             .catch(error => console.error(error));
-
     }
 
     if (categoryRecords.records) {

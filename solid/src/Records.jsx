@@ -33,7 +33,7 @@ function Records({ categories, records }) {
 
     return (
     <div id="records">
-        <table className="records">
+        <table class="records">
             <thead>
                 <tr><th>Item</th><th>Count</th><th>Price</th></tr>
             </thead>
@@ -44,8 +44,8 @@ function Records({ categories, records }) {
                     )}
                 </For>
                 <tr>
-                    <td colSpan="2" className="total">Total</td>
-                    <td className="total">${getTotal(records()).toFixed(2)}</td>
+                    <td colSpan="2" class="total">Total</td>
+                    <td class="total">${getTotal(records()).toFixed(2)}</td>
                 </tr>
             </tbody>
         </table>
