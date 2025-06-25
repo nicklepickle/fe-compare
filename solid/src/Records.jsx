@@ -4,7 +4,7 @@ import { For } from 'solid-js';
 
 function Records({ categories, records }) {
     
-    function getCategoryRecords(cats, recs) {
+    function getCategoryRecords(cats, recs) {       
         let catRecords = [] 
         for(const c of cats) {
             let catRecs = recs.filter((r) => r.category == c.categoryId);
@@ -21,12 +21,6 @@ function Records({ categories, records }) {
         return catRecords;
     }
     
-
-    //console.log(JSON.stringify(getCategoryRecords(categories, records)))
-
-    console.log('records',records())
-    if (!records) records= []
-
     function getTotal(recs) {
         return recs.reduce((total, rec) => total + (Number(rec.price) * Number(rec.count)), 0);
     }

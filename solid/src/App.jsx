@@ -1,11 +1,16 @@
-import { createSignal } from 'solid-js'
+import { createSignal, createResource } from 'solid-js'
 import Records from './Records.jsx'
 import Modal from './Modal.jsx'
 import Cookie from './cookie.js'
 
 function App() {
     const [records, setRecords] = createSignal([])
-    const [categories, setCategories] = createSignal([])
+
+    // use a resource because categories don't change
+    const [categories] = createResource(async() => {
+        const response = await fetch('/categories').catch(error => console.error(error)); 
+        return response.json();
+    },{initialValue: []})
 
     const clearChecked = async (e) => {
         await fetch('/clear')
@@ -21,13 +26,6 @@ function App() {
             .catch(error => console.error(error));   
     }
 
-    const fetchCategories = async() => {
-        await fetch('/categories')
-            .then(response => response.json())
-            .then(json => {setCategories(json)  })
-            .catch(error => console.error(error));   
-    }
-
     const toggleDark = () => {
         const root = document.querySelector(":root");
         let colorScheme = root.style.getPropertyValue('color-scheme');
@@ -38,7 +36,6 @@ function App() {
         Cookie.setCookie('_fe-c', value) 
     }
 
-    fetchCategories();
     fetchRecords();
     
     let c = Cookie.getCookie('_fe-c');
