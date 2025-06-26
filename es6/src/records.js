@@ -23,10 +23,11 @@ function Records(categories) {
     },
     renderRecords(json) {
         records.$body.innerHTML = '';
-        let sorted = json.sort((a,b) => a.category - b.category);
+
+        json.sort((a,b) => a.category - b.category);
         let cat = '';
         let total = 0;
-        for(const record of sorted) {
+        for(const record of json) {
             if (record.category != cat) {
                 const $headerRow = document.createElement('tr');
                 const $header = document.createElement('th');
