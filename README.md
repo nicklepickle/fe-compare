@@ -19,6 +19,15 @@ simple json files for storage. Vite is used to build and develop. Vite-express i
 
 ## Notes
 
+### ES6 
+- Generating HTML elements comparatively tedious vs. templates
+- No data binding
+- Great modularity for js, bad modularity for html/css
++ Only vesion to get initial items call correct (all others rely on hard coded 100)
++ Most granular control over data flow
++ Larget market share (it's just javascript!)
++ No dependencies
+
 ### React
 - Required more packages/dependencies
 - Error handling painful at first
@@ -30,22 +39,12 @@ simple json files for storage. Vite is used to build and develop. Vite-express i
 + High market share
 
 ### HTMX 
-- Server side rendering is cheating (should use templates)
 - No data binding
 - Examples hard to find online, small market share
 - Fall back on js for form validation
-- Need to implement templating library
+- Needed to implement hbs templating library
 + Very terse
-+ No dependencies other than htmx
-
-### ES6 
-- Generating HTML elements comparatively tedious
-- No data binding
-- Great modularity for js, bad modularity for html/css
-+ Only vesion to get initial items call correct (all others rely on hard coded 100)
-+ Most granular control over data flow
-+ Larget market share (it's just javascript!)
-+ No dependencies
++ Unique approach which may be perfect for smaller projects
 
 ### Svelte 
 - Opinionated about SvelteKit (harded to use without)
@@ -59,8 +58,8 @@ simple json files for storage. Vite is used to build and develop. Vite-express i
 - v-model a little cryptic
 - Needed two components to render records
 - Decent market share
-- Took longest to implement (ran into issue that stumped copilot)
-+ Great modularity all around
+- Took longest to implement (ran into issue that stumped me + copilot)
++ Great modularity all around (scoped css could be almost to strict)
 + Only dev dependencies
 
 ### Solid
@@ -70,4 +69,5 @@ simple json files for storage. Vite is used to build and develop. Vite-express i
 + quickest to implement (copied react templates)
 + Only dev dependencies
 + Good modularity for html/js, css may leak a little? (like react)
-+ JSX does not require alternate html attributes for JavaScript keywords
++ Unlinke react, JSX does not require alternate html attributes for js keywords
++ For loops is improvement over using map in React

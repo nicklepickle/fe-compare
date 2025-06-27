@@ -1,23 +1,22 @@
 <table class="records">
     <thead><tr><th>Item</th><th>Count</th><th>Price</th></thead>
     <tbody>
-    let cat = '';
-    let total = 0;
-    records.sort((a,b) => a.category - b.category);
-    for(const r of records) {
-        if (r.category != cat) {
-          html += `<tr><th colspan="3" class="category">${getCategoryName(r.category)}</th></tr>`;
-        }
-        if (r.checked) {
-          html += `<tr><td><input type="checkbox" name="${r.item}" checked hx-get="/check?checked=false&item=${r.item}" hx-trigger="click">${r.item}</td>`
-        }
-        else {
-          html += `<tr><td><input type="checkbox" name="${r.item}" hx-get="/check?checked=true&item=${r.item}">${r.item}</td>`
-        }
-        html += `<td>${r.count}</td><td>$${Number(r.price).toFixed(2)}</td></tr>`;
-        cat = r.category;
-        total += (Number(r.price) * Number(r.count));
-    }
-        <tr><td colspan="2" class="total">Total</td><td class="total">$${total.toFixed(2)}</td></tr>`;
+        {{#each categories}}
+            <tr>
+                <th class="category" colspan="3">{{this.category}}</th>
+            </tr>
+            {{#each this.records}}
+                <tr>
+                    {{#if this.checked}}
+                    <td><input type="checkbox" checked name="{{this.item}}" hx-get="/check?checked=true&item={{this.item}}">{{this.item}}</td>
+                    {{else}}
+                    <td><input type="checkbox" name="{{this.item}}" hx-get="/check?checked=true&item={{this.item}}">{{this.item}}</td>
+                    {{/if}}
+                    <td>{{this.count}}</td>
+                    <td>${{this.price}}</td>
+                </tr>
+            {{/each}}
+        {{/each}}
+        <tr><td colspan="2" class="total">Total</td><td class="total">${{total}}</td></tr>
     </tbody>
 </table>
