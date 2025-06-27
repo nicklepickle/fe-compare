@@ -42,7 +42,7 @@ app.get('/records', async(req, res, next) => {
     let html = '<table class="records"><thead><tr><th>Item</th><th>Count</th><th>Price</th></thead><tbody>';
     let cat = '';
     let total = 0;
-    records = records.sort((a,b) => a.category - b.category);
+    records.sort((a,b) => a.category - b.category);
     for(const r of records) {
         if (r.category != cat) {
           html += `<tr><th colspan="3" class="category">${getCategoryName(r.category)}</th></tr>`;
