@@ -1,0 +1,6 @@
+<label for="category">Category</label>
+<select class="form-input" name="category" id="category" hx-trigger="change" hx-get="/items" hx-include="[name='category']" hx-target="#item-container">
+  {{#each categories}}
+      <option value="{{this.categoryId}}">{{this.category}}</option>
+  {{/each}}
+</select>

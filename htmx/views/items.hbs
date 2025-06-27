@@ -1,0 +1,7 @@
+<label for="item">Item</label>
+<select class="form-input" name="item" id="item">
+  {{#each items}}
+      <option value="{{this.nameSpecific}}">{{this.nameSpecific}}</option>
+  {{/each}}
+</select>
+<span class="error hidden" id="item-error">Item already added</span>

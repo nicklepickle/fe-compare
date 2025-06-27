@@ -2,6 +2,7 @@ import express from "express";
 import ViteExpress from "vite-express";
 import fs from 'fs';
 import bp from 'body-parser';
+import hbs from 'hbs';
 
 const __dirname = import.meta.dirname;
 const app = express();
@@ -36,6 +37,8 @@ function getCategoryName(id) {
 
 app.use(bp.json());
 app.use(bp.urlencoded({ extended: true }));
+app.set('views', __dirname + '/views');
+app.set('view engine', 'hbs');
 
 app.get('/records', async(req, res, next) => {
   try {
@@ -81,13 +84,7 @@ app.post('/records', async(req, res, next) => {
 
 app.get('/categories', async(req, res, next) => {
   try {
-    let html = '<label for="category">Category</label>'
-      +'<select class="form-input" name="category" id="category" hx-trigger="change" hx-get="/items" hx-include="[name=\'category\']" hx-target="#item-container">';
-    for(const c of categories) {
-      html += `<option value="${c.categoryId}">${c.category}</option>`;
-    }
-    html += '</select>';
-    res.send(html)
+    res.render('categories', {categories: categories});
   }
   catch(error) {
     console.error(error);
@@ -97,15 +94,8 @@ app.get('/categories', async(req, res, next) => {
 
 app.get('/items', async(req, res, next) => {
   try {
-    let html = '<label for="item">Item</label><select class="form-input" name="item" id="item">';
-    
-    for(const i of items) {
-      if (i.categoryId == req.query.category) {
-        html += `<option value="${i.nameSpecific}">${i.nameSpecific}</option>`;
-      }
-    }
-    html += '</select><span class="error hidden" id="item-error">Item already added</span>';
-    res.send(html)
+    let catItems = items.filter((i) => i.categoryId == req.query.category)
+    res.render('items', {items: catItems});
   }
   catch(error) {
     console.error(error);
