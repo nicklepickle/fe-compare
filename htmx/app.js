@@ -121,8 +121,17 @@ app.get('/clear', async(req, res, next) => {
   }
 });
 
-fs.copyFileSync(__dirname + '/node_modules/htmx.org/dist/htmx.min.js',__dirname + '/src/htmx.min.js');
+// I shouldn't have to do this
+fs.copyFileSync(__dirname + '/node_modules/htmx.org/dist/htmx.min.js',__dirname + '/public/htmx.min.js');
 
-ViteExpress.listen(app, port, () => {
-    console.log(`Express app listening on port http://localhost:${port}/`)
-});
+//console.log(JSON.stringify(process.argv));
+if (process.argv.length > 2 && process.argv[2] == '-dev') {
+  ViteExpress.listen(app, port, () => {
+      console.log(`ViteExpress listening at http://localhost:${port}/`)
+  });
+}
+else {
+  app.use(express.static(__dirname + '/dist'));
+  app.listen(port);
+  console.log(`Express app listening at http://localhost:${port}/dist/`)
+}

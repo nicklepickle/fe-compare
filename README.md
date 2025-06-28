@@ -8,6 +8,7 @@ displaying records and a modal dialog to add a record. We will evaluate each lib
 following criteria:
 
 - Market Share (use of library, developer availability, age of project)
+- Developer Experience (ease of use, learning curve, very subjective)
 - Modularity (how much does each component need to know about children, parents?)
 - Performance (page load, memory usage, dynamic request speed/size)
 - Portability (deviation from web standards, non-portable concepts/syntax)
@@ -17,7 +18,7 @@ following criteria:
 We are not evaluating back end technology. The project will use express to implement a REST API and 
 simple json files for storage. Vite is used to build and develop. Vite-express is used as glue.
 
-## Notes
+## Development Notes
 
 ### ES6 
 - Generating HTML elements comparatively tedious vs. templates

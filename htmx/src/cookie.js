@@ -21,6 +21,6 @@ const Cookie = {
         }
         return val ? atob(val) : null;                  
     }
-}
+};
 
-//export default Cookie;
+export default Cookie;

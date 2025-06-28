@@ -5,13 +5,16 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>HTMX Test</title>
         <link rel="stylesheet" type="text/css" href="/src/main.css">
-        <script src="/src/htmx.min.js"></script>
-        <script src="/src/cookie.js"></script>
+        <script src="htmx.min.js"></script>
         <script>
-            let c = Cookie.getCookie('_fe-c');
-            if (c) {
-                htmx.find(":root").style.setProperty('color-scheme', JSON.parse(c).colorScheme)
-            }
+            let Cookie = {};
+            import('/src/cookie.js').then((module) => {
+                Cookie = module.default;
+                let c = Cookie.getCookie('_fe-c');
+                if (c) {
+                    htmx.find(":root").style.setProperty('color-scheme', JSON.parse(c).colorScheme)
+                }
+            })
 
             function toggleDark() {
                 const root = htmx.find(":root");
@@ -19,7 +22,7 @@
                 colorScheme = (colorScheme == 'dark' ? 'light' : 'dark');
                 root.style.setProperty('color-scheme', colorScheme)
                 let value = JSON.stringify({colorScheme:colorScheme});
-                console.log('toggleDark', value)
+                //console.log('toggleDark', value)
                 Cookie.setCookie('_fe-c', value)
             }
 

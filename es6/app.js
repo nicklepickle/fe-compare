@@ -3,7 +3,7 @@ import ViteExpress from "vite-express";
 import fs from 'fs';
 import bp from 'body-parser';
 const __dirname = import.meta.dirname;
-
+const mode = (process.argv.length > 2 && process.argv[2] == '-dev') ? 'dev' : 'prod';
 const app = express();
 const port  = 8001;
 const paths = {
@@ -26,7 +26,6 @@ if (fs.existsSync(paths.categories)) {
   categories = JSON.parse(fs.readFileSync(paths.categories))
 }
 
-app.use(express.static(__dirname + '/public'));
 app.use(bp.json());
 app.use(bp.urlencoded({ extended: true }));
 
@@ -112,8 +111,14 @@ app.get('/clear', async(req, res, next) => {
   }
 });
 
-
-ViteExpress.listen(app, port, () => {
-    console.log(`Express app listening on port http://localhost:${port}/`)
-});
-
+//console.log(JSON.stringify(process.argv));
+if (mode == 'dev') {
+  ViteExpress.listen(app, port, () => {
+      console.log(`ViteExpress listening at http://localhost:${port}/`)
+  });
+}
+else {
+  app.use(express.static(__dirname + '/dist'));
+  app.listen(port);
+  console.log(`Express app listening at http://localhost:${port}/dist/`)
+}
