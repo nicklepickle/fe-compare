@@ -14,7 +14,9 @@
   "dependencies": {
     "express": "^5.1.0",
     "hbs": "^4.2.0",
-    "htmx.org": "^1.9.12",
+    "htmx.org": "^1.9.12"
+  },
+  "devDependencies": {
     "vite": "^6.3.5",
     "vite-express": "^0.21.1"
   }

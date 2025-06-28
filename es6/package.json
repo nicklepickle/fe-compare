@@ -12,7 +12,9 @@
     "preview": "node app.js"
   },
   "dependencies": {
-    "express": "^5.1.0",
+    "express": "^5.1.0"
+  },
+  "devDependencies": {
     "vite": "^6.3.5",
     "vite-express": "^0.21.1"
   }
