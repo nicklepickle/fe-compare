@@ -17,7 +17,7 @@ function App() {
     const [records, setRecords] = useState([]);
     const [categories, setCategories] = useState([]);
 
-    const clearChecked = async (e) => {
+    const clearChecked = async () => {
         await fetch('/clear')
           .then(response => response.json())
           .then(json => {setRecords(json) })
