@@ -3,7 +3,7 @@ import ViteExpress from "vite-express";
 import fs from 'fs';
 import bp from 'body-parser';
 const __dirname = import.meta.dirname;
-const mode = (process.argv.length > 2 && process.argv[2] == '-dev') ? 'dev' : 'prod';
+
 const app = express();
 const port  = 8001;
 const paths = {
@@ -111,8 +111,7 @@ app.get('/clear', async(req, res, next) => {
   }
 });
 
-//console.log(JSON.stringify(process.argv));
-if (mode == 'dev') {
+if (process.argv.length > 2 && process.argv[2] == '-dev') {
   ViteExpress.listen(app, port, () => {
       console.log(`ViteExpress listening at http://localhost:${port}/`)
   });
@@ -120,5 +119,5 @@ if (mode == 'dev') {
 else {
   app.use(express.static(__dirname + '/dist'));
   app.listen(port);
-  console.log(`Express app listening at http://localhost:${port}/dist/`)
+  console.log(`Express app listening at http://localhost:${port}/`)
 }

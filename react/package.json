@@ -4,10 +4,10 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "node app.js",
+    "dev": "node app.js -dev",
     "build": "vite build",
-    "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "node app.js",
+    "lint": "eslint ."
   },
   "dependencies": {
     "express": "^5.1.0",

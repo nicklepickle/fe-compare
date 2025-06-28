@@ -23,3 +23,14 @@ vite v6.3.5 building for production...
 dist/index.html                 5.28 kB │ gzip: 1.91 kB
 dist/assets/index-BX9qL0Ht.css  1.73 kB │ gzip: 0.67 kB
 ✓ built in 41ms
+
+## React
+> react-test@0.0.0 build
+> vite build
+
+vite v6.3.5 building for production...
+✓ 36 modules transformed.
+dist/index.html                   0.37 kB │ gzip:  0.26 kB
+dist/assets/index-x91orODR.css    1.75 kB │ gzip:  0.68 kB
+dist/assets/index-D1Xc-jUN.js   194.63 kB │ gzip: 61.28 kB
+✓ built in 436ms

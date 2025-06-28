@@ -133,5 +133,5 @@ if (process.argv.length > 2 && process.argv[2] == '-dev') {
 else {
   app.use(express.static(__dirname + '/dist'));
   app.listen(port);
-  console.log(`Express app listening at http://localhost:${port}/dist/`)
+  console.log(`Express app listening at http://localhost:${port}/`)
 }
