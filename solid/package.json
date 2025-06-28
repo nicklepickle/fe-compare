@@ -4,9 +4,9 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "node app.js",
+    "dev": "node app.js -dev",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "node app.js"
   },
   "dependencies": {
     "express": "^5.1.0",

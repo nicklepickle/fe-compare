@@ -113,7 +113,13 @@ app.get('/clear', async(req, res, next) => {
 });
 
 
-ViteExpress.listen(app, port, () => {
-    console.log(`Express app listening on port http://localhost:${port}/`)
-});
-
+if (process.argv.length > 2 && process.argv[2] == '-dev') {
+  ViteExpress.listen(app, port, () => {
+      console.log(`ViteExpress listening at http://localhost:${port}/`)
+  });
+}
+else {
+  app.use(express.static(__dirname + '/dist'));
+  app.listen(port);
+  console.log(`Express app listening at http://localhost:${port}/`)
+}
