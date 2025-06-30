@@ -70,7 +70,7 @@ function App() {
       </div>
       
       <ErrorBoundary  onError={console.error} FallbackComponent={Fallback} >
-        <Records categories={categories} records={records} />
+        <Records categories={categories} records={records} setRecords={setRecords} />
         <Modal categories={categories} setRecords={setRecords} />
       </ErrorBoundary>
     </>

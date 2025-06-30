@@ -1,5 +1,94 @@
 # Front End Comparison Results
 
+## Dependencies
+
+### ES6
+Prod
+- express
+Dev
+- vite
+- vite-express
+
+total dependencies: 3
+package-lock size: 62 kB
+node_modules size: 22.1 MB
+
+### HTMX
+Prod
+- express
+- hbs
+- htmx.org
+Dev
+- vite
+- vite-express
+
+total dependencies: 5
+package-lock size: 67 kB
+node_modules size: 22.4 MB
+
+### React
+Prod
+- express
+- react
+- react-dom
+- react-error-boundary
+Dev
+- @types/react
+- @types/react-dom
+- @vitejs/plugin-react
+- globals
+- vite
+- vite-express
+
+total dependencies: 10
+package-lock size: 93 kB
+node_modules size: 44.8 MB
+
+### Solid
+Prod
+- express
+- solid-js
+Dev
+- vite
+- vite-express
+- vite-plugin-solid
+
+total dependencies: 5
+package-lock size: 94 kB
+node_modules size: 38.7 MB
+
+### Svelte
+Prod
+- svelte
+- express
+Dev
+- @sveltejs/vite-plugin-svelte
+- vite-express
+- vite
+
+total dependencies: 5
+package-lock size: 76 kB
+node_modules size: 27.7 MB
+
+### Vue
+Prod
+- express
+- vue
+Dev
+- @vitejs/plugin-vue
+- vite-express
+- vite
+
+total dependencies: 5
+package-lock size: 72 kB
+node_modules size: 38.5 MB
+
+## Development
+
+
+
+
+
 ## Build
 
 ### ES6
@@ -24,7 +113,7 @@ dist/index.html                 5.28 kB │ gzip: 1.91 kB
 dist/assets/index-J-7tryoT.css  1.75 kB │ gzip: 0.68 kB
 ✓ built in 98ms
 
-## React
+### React
 > react-test@0.0.0 build
 > vite build
 
@@ -35,7 +124,7 @@ dist/assets/index-x91orODR.css    1.75 kB │ gzip:  0.68 kB
 dist/assets/index-D1Xc-jUN.js   194.63 kB │ gzip: 61.28 kB
 ✓ built in 436ms
 
-## Solid
+### Solid
 > solid-test@0.0.0 build
 > vite build
 
@@ -46,7 +135,7 @@ dist/assets/index-x91orODR.css   1.75 kB │ gzip: 0.68 kB
 dist/assets/index-DXVV_tn8.js   16.75 kB │ gzip: 6.66 kB
 ✓ built in 190ms
 
-## Svelte
+### Svelte
 > svelte-test@0.0.0 build
 > vite build
 
@@ -57,7 +146,7 @@ dist/assets/index-N8SxIneX.css   2.19 kB │ gzip:  0.74 kB
 dist/assets/index-DQ5tZtIL.js   26.66 kB │ gzip: 10.53 kB
 ✓ built in 289ms
 
-## Vue
+### Vue
 > vue-test@0.0.0 build
 > vite build
 

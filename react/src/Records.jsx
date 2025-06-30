@@ -1,7 +1,7 @@
 import './Records.css'
 import Category from './Category.jsx'
 
-function Records({categories, records}) {
+function Records({categories, records, setRecords}) {
     function getCategoryRecords(cats, recs) {
         let catRecords = [] 
         for(const c of cats) {
@@ -31,7 +31,7 @@ function Records({categories, records}) {
                 <table className="records">
                     <thead><tr><th>Item</th><th>Count</th><th>Price</th></tr></thead>
                     <tbody>{getCategoryRecords(categories, records).map( function(cr) {  
-                        return (<Category key={cr.categoryId} categoryRecords={cr} />)}
+                        return (<Category key={cr.categoryId} categoryRecords={cr}  setRecords={setRecords} />)}
                     )}
                     <tr><td colSpan="2" className="total">Total</td><td className="total">${getTotal(records).toFixed(2)}</td></tr>
                     </tbody>

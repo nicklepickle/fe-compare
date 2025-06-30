@@ -8,13 +8,13 @@
     "build": "vite build",
     "preview": "node app.js"
   },
+  "dependencies": {
+    "svelte": "^5.28.1",
+    "express": "^5.1.0"
+  },
   "devDependencies": {
     "@sveltejs/vite-plugin-svelte": "^5.0.3",
     "vite-express": "^0.21.1",
     "vite": "^6.3.5"
-  },
-  "dependencies": {
-    "svelte": "^5.28.1",
-    "express": "^5.1.0"
   }
 }
