@@ -59,7 +59,7 @@ function Records(categories) {
             $row.append($cell3);
 
             records.$body.append($row);
-            total += Number(record.price);
+            total += Number(record.price * record.count);
         }
 
         const $totalRow = document.createElement('tr');
