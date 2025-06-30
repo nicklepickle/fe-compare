@@ -49,9 +49,12 @@ function addRecord(e) {
     if (errors == 0) {
         fetch('/records',{method:'post',body: data})
             .then(response => response.json())
-            .then(json => props.setRecords(json))
+            .then(json => {
+                props.setRecords(json);
+                document.getElementById('modal').classList.add('hidden');
+            })
             .catch(error => console.error(error));
-        document.getElementById('modal').classList.add('hidden');
+        
     }
 }
 

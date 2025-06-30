@@ -1,5 +1,5 @@
 <script setup>
-import { ref } from 'vue'
+
 import Category from './Category.vue'
 defineProps({
   categories: Array,
