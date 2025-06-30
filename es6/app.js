@@ -26,6 +26,8 @@ if (fs.existsSync(paths.categories)) {
   categories = JSON.parse(fs.readFileSync(paths.categories))
 }
 
+console.log('items.length',items.length)
+
 app.use(bp.json());
 app.use(bp.urlencoded({ extended: true }));
 

@@ -1,0 +1,54 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Test Project Requirements</title>
+    <style>
+        #main {
+            padding:10px 200px 10px 200px;
+            font-size:16px;
+            font-family:sans-serif;
+        }
+        .note {
+            color: #900; 
+            position:absolute;     
+        }
+        .note b {font-size: 30px;}
+        #n1 {top: 90px; left: 40px;}
+        #n2 {top: 40px; left: 730px;}
+        #n3 {top: 90px; left: 730px;}
+        #n4 {top: 305px; left: 20px;}
+        #n5 {top: 450px; left: 730px;}
+    </style>
+  </head>
+  <body>
+    <div id="main">
+        <img src="wireframe.png"/>
+        <span class="note" id="n1">
+            Opens dialog to add item. 
+            <b>&rarr;</b><br /> 
+            Items are selected by <br /> 
+            category then by item. <br />
+            Price and count are <br />
+            numeric and required.
+        </span>
+        <span class="note" id="n2">
+            <b>&larr;</b> 
+            Toggle between light and dark theme.
+        </span>
+        <span class="note" id="n3">
+            <b>&larr;</b> 
+            Remove all checked records from the list.
+        </span>
+        <span class="note" id="n4">
+            Items are sorted by category. 
+            <b>&rarr;</b><br /> 
+        </span>       
+        <span class="note" id="n5">
+            <b>&larr;</b> 
+            Total of all items.
+        </span>
+    </div>
+  </body>
+</html>
