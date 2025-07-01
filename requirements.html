@@ -10,20 +10,34 @@
             font-size:16px;
             font-family:sans-serif;
         }
+        table {
+            min-width:800px;
+            font-family: monospace;
+            border-collapse: collapse;
+        }
+        th, td {
+            text-align:left;
+            vertical-align:top;
+            min-width:120px;
+            border:2px solid #000;
+            padding: 4px;
+        }
+
         .note {
             color: #900; 
             position:absolute;     
         }
         .note b {font-size: 30px;}
-        #n1 {top: 90px; left: 40px;}
-        #n2 {top: 40px; left: 730px;}
-        #n3 {top: 90px; left: 730px;}
-        #n4 {top: 305px; left: 20px;}
-        #n5 {top: 450px; left: 730px;}
+        #n1 {top: 160px; left: 40px;}
+        #n2 {top: 110px; left: 730px;}
+        #n3 {top: 160px; left: 730px;}
+        #n4 {top: 375px; left: 20px;}
+        #n5 {top: 520px; left: 730px;}
     </style>
   </head>
   <body>
     <div id="main">
+        <h2>Wireframe</h2>
         <img src="wireframe.png"/>
         <span class="note" id="n1">
             Opens dialog to add item. 
@@ -31,7 +45,9 @@
             Items are selected by <br /> 
             category then by item. <br />
             Price and count are <br />
-            numeric and required.
+            numeric and required.<br />
+            An item can only be <br />
+            added once.
         </span>
         <span class="note" id="n2">
             <b>&larr;</b> 
@@ -49,6 +65,43 @@
             <b>&larr;</b> 
             Total of all items.
         </span>
+
+        <h2>API</h2>
+        <b>Objects</b>
+        <table>
+            <thead>
+                <tr><th>Name</th><th>Field</th><th>Type</th></tr>
+            </thead>
+            <tbody>
+                <tr class="row"><th rowspan="5">Record</th><td>category</td><td>numeric string</td></tr>
+                <tr><td>item</td><td>string</td></tr>
+                <tr><td>count</td><td>numeric string</td></tr>
+                <tr><td>price</td><td>decimal string</td></tr>
+                <tr><td>checked (optional)</td><td>boolean string</td></tr>
+
+                <tr class="row"><th rowspan="2">Category</th><td>category</td><td>string</td></tr>
+                <tr><td>categoryId</td><td>numeric string</td></tr>
+
+                <tr class="row"><th rowspan="3">Item</th><td>nameSpecific</td><td>string</td></tr>
+                <tr><td>nameGeneral</td><td>string</td></tr>
+                <tr><td>categoryId</td><td>numeric string</td></tr>
+            </tbody>
+        </table>
+        <br />
+        <b>Methods</b>
+        <table>
+            <thead>
+                <tr><th>URL</th><th>Verb</th><th>Description</th><th>Response</th></tr>
+            </thead>
+            <tbody>
+                <tr><th>/records</th><td>GET</td><td>get records</td><td>array of records</td></tr>
+                <tr><th>/records</th><td>POST</td><td>add a record from post body</td><td>array of records</td></tr>
+                <tr><th>/categories</th><td>GET</td><td>get categories</td><td>array of categories</td></tr>
+                <tr><th>/items</th><td>GET</td><td>get items</td><td>array of items</td></tr>
+                <tr><th>/check</th><td>GET</td><td>toggles a record's checked field to<br /> true or false by item name</td><td>array of records</td></tr>
+                <tr><th>/clear</th><td>GET</td><td>removes records where checked is true</td><td>array of records</td></tr>
+            </tbody>
+        </table>
     </div>
   </body>
 </html>
