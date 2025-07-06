@@ -219,10 +219,10 @@ vite v6.3.5 building for production...
 ✓ 7 modules transformed.
 dist/index.html                 2.61 kB │ gzip: 0.75 kB
 dist/assets/index-J-7tryoT.css  1.75 kB │ gzip: 0.68 kB
-dist/assets/index-CMAPaDZy.js   5.07 kB │ gzip: 1.87 kB
-✓ built in 114ms
+dist/assets/index-qzgQcJRy.js   5.07 kB │ gzip: 1.87 kB
+✓ built in 184ms
 ```
-Total Uncompressed: 8.98 kB
+Total Uncompressed: 9.43 kB
 
 
 ### HTMX
@@ -235,7 +235,7 @@ htmx.min.js can't be bundled without type="module" attribute (48.1 kB)
 ✓ 2 modules transformed.
 dist/index.html                 5.28 kB │ gzip: 1.91 kB
 dist/assets/index-J-7tryoT.css  1.75 kB │ gzip: 0.68 kB
-✓ built in 98ms
+✓ built in 157ms
 ```
 Total Uncompressed: 55.13 kB
 
@@ -294,3 +294,18 @@ dist/assets/index-DxMo-c_l.js   67.36 kB │ gzip: 26.61 kB
 ✓ built in 359ms
 ```
 Total Uncompressed: 69.95 kB
+
+
+## Run time performance
+
+### ES6 (Safari 18.3.1)
+- 20 Records: Total payload: 36.1 KB | Load time: 29.3 MS
+- 100 Records: Total payload: 41.1 KB | Load time: 40.6 MS
+- 1000 Records: Total payload: 99.5 KB | Load time: 63.1 MS
+- 2000 Records: Total payload: 165.1 KB | Load time: 68.1 MS
+
+### HTMX (Safari 18.3.1)
+- 20 Records: Total payload: 81.1 KB | Load time: 49.5 MS
+- 100 Records: Total payload: 101.1 KB | Load time: 66.2 MS
+- 1000 Records: Total payload: 323.2 KB | Load time: 51.6 MS
+- 2000 Records: Total payload: 573.1 KB | Load time: 79.9 MS

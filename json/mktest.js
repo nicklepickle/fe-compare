@@ -19,9 +19,8 @@ for(const c of categories) {
 }
 
 function mkTest(size) {
-  let a = [];
+  let a = [], i = 0;
   while(a.length < size) {
-    let i=0;
     for (const ci of catItems) {
       if (ci.items.length > i && a.length < size) {
         a.push({
@@ -31,17 +30,15 @@ function mkTest(size) {
           price:Math.round(Math.random() * 20)+1})
       }
     }
+    console.log('push', i)
     i++;
   }
-  return a;
+  fs.writeFileSync(`${__dirname}/records${size}.json`, JSON.stringify(a));
 }
 
-let records10 = mkTest(10);
-let records100 = mkTest(100);
-let records1000 = mkTest(1000);
-
-fs.writeFileSync(__dirname + "/records10.json", JSON.stringify(records10));
-fs.writeFileSync(__dirname + "/records100.json", JSON.stringify(records100));
-fs.writeFileSync(__dirname + "/records1000.json", JSON.stringify(records1000));
+mkTest(20);
+mkTest(100);
+mkTest(1000);
+mkTest(2000);
 
 console.log('done');
