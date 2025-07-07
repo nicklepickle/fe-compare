@@ -18,6 +18,7 @@ let categories = [];
 
 if (fs.existsSync(paths.records)) {
   records = JSON.parse(fs.readFileSync(paths.records))
+    console.log(records.length, 'records')
 }
 if (fs.existsSync(paths.items)) {
   items = JSON.parse(fs.readFileSync(paths.items))

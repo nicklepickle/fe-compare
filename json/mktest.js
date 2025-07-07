@@ -36,7 +36,6 @@ function mkTest(size) {
   fs.writeFileSync(`${__dirname}/records${size}.json`, JSON.stringify(a));
 }
 
-mkTest(20);
 mkTest(100);
 mkTest(1000);
 mkTest(2000);

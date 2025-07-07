@@ -11,6 +11,14 @@ This project is not evaluating back end technology. It will use express to imple
 simple json files for storage. Vite is used to build and develop. Vite-express is used as glue.
 Implementations were all created by running `npm create vite@latest` and following the prompts.
 
+## Comparison Candidates
+- ES6 (no dependencies)
+- HTMX
+- React
+- Solid
+- Svelte
+- Vue
+
 ## Comparison Criteria
 The various libraries will be avaulated on the following criteria:
 - Market share
@@ -248,10 +256,10 @@ vite v6.3.5 building for production...
 ✓ 36 modules transformed.
 dist/index.html                   0.37 kB │ gzip:  0.26 kB
 dist/assets/index-x91orODR.css    1.75 kB │ gzip:  0.68 kB
-dist/assets/index-D1Xc-jUN.js   194.63 kB │ gzip: 61.28 kB
-✓ built in 436ms
+dist/assets/index-D1Xc-jUN.js   194.72 kB │ gzip: 61.28 kB
+✓ built in 441ms
 ```
-Total Uncompressed: 196.75 kB
+Total Uncompressed: 196.84 kB
 
 ### Solid
 ```
@@ -299,13 +307,31 @@ Total Uncompressed: 69.95 kB
 ## Run time performance
 
 ### ES6 (Safari 18.3.1)
-- 20 Records: Total payload: 36.1 KB | Load time: 29.3 MS
 - 100 Records: Total payload: 41.1 KB | Load time: 40.6 MS
 - 1000 Records: Total payload: 99.5 KB | Load time: 63.1 MS
 - 2000 Records: Total payload: 165.1 KB | Load time: 68.1 MS
 
 ### HTMX (Safari 18.3.1)
-- 20 Records: Total payload: 81.1 KB | Load time: 49.5 MS
 - 100 Records: Total payload: 101.1 KB | Load time: 66.2 MS
 - 1000 Records: Total payload: 323.2 KB | Load time: 51.6 MS
 - 2000 Records: Total payload: 573.1 KB | Load time: 79.9 MS
+
+### React (Safari 18.3.1)
+- 100 Records: Total payload: 228.6 KB | Load time: 54.3 MS
+- 1000 Records: Total payload: 286.9 KB | Load time: 44.3 MS
+- 2000 Records: Total payload: 352.5 KB | Load time: 63.9 MS
+
+### Solid (Safari 18.3.1)
+- 100 Records: Total payload: 50.7 KB | Load time: 58.2 MS
+- 1000 Records: Total payload: 109.9 KB | Load time: 66.2 MS
+- 2000 Records: Total payload: 174.9 KB | Load time: 52.3 MS
+
+### Svelte (Safari 18.3.1)
+- 100 Records: Total payload: 61.0 KB | Load time: 48.8 MS
+- 1000 Records: Total payload: 119.3 KB | Load time: 66.1 MS
+- 2000 Records: Total payload: 184.9 KB | Load time: 56.0 MS
+
+### Vue (Safari 18.3.1)
+- 100 Records: Total payload: 101.7 KB | Load time: 55.0 MS
+- 1000 Records: Total payload: 160.0 KB | Load time: 75.4 MS
+- 2000 Records: Total payload: 225.6 KB | Load time: 90.6 MS
