@@ -165,64 +165,62 @@ node_modules size: 38.5 MB
 ## Development
 
 ### ES6
-Pros
+#### Pros
 + Does not require learning a framework
 + Most granular control over data flow and lifecycle
 + Great modularity for JS modules
-Cons
+#### Cons
 - Generating HTML elements tedious without templates
 - No data binding
 - No modularity for HTML/CSS
 
 ### HTMX 
-\Pros
+#### Pros
 + Very intutive data flow
 + Small set of html extenstions to learn
 + Easy to extend with standard JS
-\Cons
+#### Cons
 - No data binding
 - Relied on/limited by hbs templating library for server side rendering
 - Lack of support for loading HTMX as a ES6 module
 - No modularity for CSS
 
 ### React
-Pros
+#### Pros
 + Hooks are an improvement over class components
 + Good modularity for HTML/JS
 + Wide array of developer tools available
-\
-Cons
+#### Cons
 - Error handling painful wihtout error boundy
 - Array map weak solution for loops
 - JSX requires alternate html attributes to avoid naming conflicts with JS keywords
 - CSS modularity lost during build
 
 ### Solid
-\Pros
+#### Pros
 + Good modularity for HTML/JS
 + Unlinke react, JSX does not require alternate html attributes for JS keywords
 + For loops are an improvement over using array map in React
-\Cons
+#### Cons
 - CSS modularity lost during build
 
 ### Svelte
-Pros
+#### Pros
 + Good modularity for HTML/JS
 + CSS modulatiry enforced at build
 + More standard way of including js, css and html in a component than JSX
 + :bind makes two-way binding easy (maybe too easy?)
-\
-Cons
+#### Cons
 - Struggled with initial setup without SvelteKit (skill issue)
 - False positive errors in VSCode editor (fixable but annoying)
 - Component life cycle confusing (when are props populated? skill issue)
 
 ### Vue
-\Pros
+#### Pros
 + Good modularity for HTML/JS
 + CSS modulatiry enforced at build
 + More standard way of including js, css and html in a component that JSX
-\Cons
+#### Cons
 - v-model a little cryptic
 - Took longest to implement (skill issue)
 
