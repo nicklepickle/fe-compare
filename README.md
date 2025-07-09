@@ -186,11 +186,12 @@ Cons
 - No modularity for CSS
 
 ### React
-\Pros
+Pros
 + Hooks are an improvement over class components
 + Good modularity for HTML/JS
 + Wide array of developer tools available
-\Cons
+\
+Cons
 - Error handling painful wihtout error boundy
 - Array map weak solution for loops
 - JSX requires alternate html attributes to avoid naming conflicts with JS keywords
@@ -205,12 +206,13 @@ Cons
 - CSS modularity lost during build
 
 ### Svelte
-\Pros
+Pros
 + Good modularity for HTML/JS
 + CSS modulatiry enforced at build
 + More standard way of including js, css and html in a component than JSX
 + :bind makes two-way binding easy (maybe too easy?)
-\Cons
+\
+Cons
 - Struggled with initial setup without SvelteKit (skill issue)
 - False positive errors in VSCode editor (fixable but annoying)
 - Component life cycle confusing (when are props populated? skill issue)
