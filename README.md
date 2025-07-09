@@ -19,6 +19,14 @@ Implementations were all created by running `npm create vite@latest` and followi
 - Svelte
 - Vue
 
+## Key Differences
+- Vue and React use a virtual DOM while Svelte and Solid do not use a virtual DOM.
+- Svelte and Vue use HTML-first templating.
+- JSX used by React and Solid is a JavaScript-first templating language.
+- Svelte and Vue can scope css to a component while css included by JSX components is global.
+- HTMX relies on server side templating (i.e. express hbs) and is *mostly* a pure HTML solution.
+- ES6 uses no templating or framework and is a pure javascript solution provided as a baseline.
+
 ## Comparison Criteria
 The various libraries will be avaulated on the following criteria:
 - Market share
