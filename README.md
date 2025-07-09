@@ -304,34 +304,66 @@ dist/assets/index-DxMo-c_l.js   67.36 kB │ gzip: 26.61 kB
 Total Uncompressed: 69.95 kB
 
 
-## Run time performance
+## Run time performance (Mac OS + Safari 18.3.1)
 
-### ES6 (Safari 18.3.1)
+### ES6
 - 100 Records: Total payload: 41.1 KB | Load time: 40.6 MS
 - 1000 Records: Total payload: 99.5 KB | Load time: 63.1 MS
 - 2000 Records: Total payload: 165.1 KB | Load time: 68.1 MS
 
-### HTMX (Safari 18.3.1)
+### HTMX 
 - 100 Records: Total payload: 101.1 KB | Load time: 66.2 MS
 - 1000 Records: Total payload: 323.2 KB | Load time: 51.6 MS
 - 2000 Records: Total payload: 573.1 KB | Load time: 79.9 MS
 
-### React (Safari 18.3.1)
+### React
 - 100 Records: Total payload: 228.6 KB | Load time: 54.3 MS
 - 1000 Records: Total payload: 286.9 KB | Load time: 44.3 MS
 - 2000 Records: Total payload: 352.5 KB | Load time: 63.9 MS
 
-### Solid (Safari 18.3.1)
+### Solid 
 - 100 Records: Total payload: 50.7 KB | Load time: 58.2 MS
 - 1000 Records: Total payload: 109.9 KB | Load time: 66.2 MS
 - 2000 Records: Total payload: 174.9 KB | Load time: 52.3 MS
 
-### Svelte (Safari 18.3.1)
+### Svelte
 - 100 Records: Total payload: 61.0 KB | Load time: 48.8 MS
 - 1000 Records: Total payload: 119.3 KB | Load time: 66.1 MS
 - 2000 Records: Total payload: 184.9 KB | Load time: 56.0 MS
 
-### Vue (Safari 18.3.1)
+### Vue
 - 100 Records: Total payload: 101.7 KB | Load time: 55.0 MS
 - 1000 Records: Total payload: 160.0 KB | Load time: 75.4 MS
 - 2000 Records: Total payload: 225.6 KB | Load time: 90.6 MS
+
+## Run time performance (Windows 11 + Chrome 138.0.7204.97)
+
+### ES6
+- 100 Records: Memory: 9.0 MB | Resources: 41.4 KB | Load: 285 MS
+- 1000 Records: Memory: 50.1 MB | Resources: 99.7 KB | Load: 576 MS
+- 2000 Records: Memory: 88.5 MB | Resources: 165 KB | Load: 2130 MS
+
+### HTMX
+- 100 Records: Memory: 13.5 MB | Resources: 102 KB | Load: 1530 MS
+- 1000 Records: Memory: 77.6 MB | Resources: 329 KB | Load: 2290 MS
+- 2000 Records: Memory: 63.2 MB | Resources: 583 KB | Load: 1830 MS
+
+### React
+- 100 Records: Memory: 25.7 MB | Resources: 229 KB | Load: 1730 MS
+- 1000 Records: Memory: 51.1 MB | Resources: 287 KB | Load: 1820 MS
+- 2000 Records: Memory: 75.4 MB | Resources: 353 KB | Load: 1320 MS
+
+### Solid
+- 100 Records: Memory: 17.8 MB | Resources: 50.8 KB | Load: 996 MS
+- 1000 Records: Memory: 52.3 MB | Resources: 109 KB | Load: 1200 MS
+- 2000 Records: Memory: 91.1 MB | Resources: 175 KB | Load: 1690 MS
+
+### Svelte
+- 100 Records: Memory: 13.5 MB | Resources: 61.1 KB | Load: 983 MS
+- 1000 Records: Memory: 53.7 MB | Resources: 119 KB | Load: 1090 MS
+- 2000 Records: Memory: 126 MB | Resources: 185 KB | Load: 1180 MS
+
+### Vue
+- 100 Records: Memory: 16.7 MB | Resources: 102 KB | Load: 983 MS
+- 1000 Records: Memory: 59.9 MB | Resources: 160 KB | Load: 1340 MS
+- 2000 Records: Memory: 158 MB | Resources: 226 KB | Load: 1930 MS

@@ -6,15 +6,13 @@
         <title>HTMX Test</title>
         <link rel="stylesheet" type="text/css" href="/src/main.css">
         <script src="htmx.min.js"></script>
+        <script src="cookie.js"></script>
         <script>
-            let Cookie = {};
-            import('/src/cookie.js').then((module) => {
-                Cookie = module.default;
-                let c = Cookie.getCookie('_fe-c');
-                if (c) {
-                    htmx.find(":root").style.setProperty('color-scheme', JSON.parse(c).colorScheme)
-                }
-            })
+            let c = Cookie.getCookie('_fe-c');
+            if (c) {
+                htmx.find(":root").style.setProperty('color-scheme', JSON.parse(c).colorScheme)
+            }
+            
 
             function toggleDark() {
                 const root = htmx.find(":root");

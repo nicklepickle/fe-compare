@@ -23,4 +23,4 @@ const Cookie = {
     }
 };
 
-export default Cookie;
+//export default Cookie;
