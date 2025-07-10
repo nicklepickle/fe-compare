@@ -30,8 +30,8 @@ Implementations were all created by running `npm create vite@latest` and followi
 ## Comparison Criteria
 The various libraries will be avaulated on the following criteria:
 - Market share
+- Amount of dependencies
 - Developer experience
-- Amount and type of dependencies
 - Build size
 - Run time performance
 
@@ -375,3 +375,29 @@ Total Uncompressed: 69.95 kB
 - 100 Records: Memory: 16.7 MB | Resources: 102 KB | Load: 983 MS
 - 1000 Records: Memory: 59.9 MB | Resources: 160 KB | Load: 1340 MS
 - 2000 Records: Memory: 158 MB | Resources: 226 KB | Load: 1930 MS
+
+
+## Takeaways
+
+### Market share
+If market share and all of the benefits that go with it (access to developers, compatible 
+packages, tutorials and lets be honest in 2025 GPT, CoPilot, Cursor prompting) then React
+is the clear winner here. By any of the metrics considered and I am certian many that
+were not, React has more market share than all of the other candidates combined.  React
+is the oldest of these technologies and will likely stick around far into the future. HTMX
+and Solid are about tied for the lowest market share and are the newest options. Solid has
+the benefit of using JSX which I would imagine makes it easier to adopt if you and your
+team are already familiar with React.
+
+### Dependencies
+While React is the clear winner when it comes to market share it is on the bottom wrung
+if your main concern is minimizing dependencies. React has an abundance of compatible 
+packages and it all but forces you to use some of them. This is a clear trade off from
+my perspective. More compatible packages means more functionality that you don't have
+to write yourself but also means a more comples dependency graph and a larger build size.
+
+
+
+- Developer experience
+- Build size
+- Run time performance
