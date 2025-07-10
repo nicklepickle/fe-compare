@@ -472,7 +472,7 @@ isn't necessarily a bad thing and certianly better than having a large SQL data 
 that must be synced with a mirror of that data on the client. I do believe that a large
 and complex enough application would eventually devolve into a jQuery like mess using
 only HTMX. My largest HTMX critique though is the lack of support for loading as an ES6 
-modules. In 2025 modules are the default and I want to `import htmx from 'htmx.min.js'` 
+modules. In 2025 modules should be the default and I want to `import htmx from 'htmx.min.js'` 
 which as far as I can tell is not possible.
 
 #### CSS
@@ -491,4 +491,12 @@ within the component where the css was included while in JSX any component css i
 
 
 - Build size
-- Run time performance
+
+### Run time performance
+All of the performance metrics were measured with a production build using preview
+with only one browser tab open and some attempt to minimize other processes. With an 
+application the size and complexity of the test project, all of the projects performed 
+well enough that any discrepencies in load time or memory useare are likely due to the 
+environment they were running in than the speed of the build even with records cranked to 
+2000. If there is any takeaway here it is that my Windows 11 work laptop running Chrome 
+performed radically worse than my M1 2021 iMac running Safari.
