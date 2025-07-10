@@ -376,14 +376,13 @@ Total Uncompressed: 69.95 kB
 - 1000 Records: Memory: 59.9 MB | Resources: 160 KB | Load: 1340 MS
 - 2000 Records: Memory: 158 MB | Resources: 226 KB | Load: 1930 MS
 
-
 ## Takeaways
 
 ### Market share
-If market share and all of the benefits that go with it (access to developers, compatible 
-packages, tutorials and lets be honest in 2025 GPT, CoPilot, Cursor prompting) then React
+If market share and all of the benefits that go with it (community, developers, compatible 
+packages, tutorials and lets be honest in 2025 GPT, Copilot, Cursor prompting) then React
 is the clear winner here. By any of the metrics considered and I am certian many that
-were not, React has more market share than all of the other candidates combined.  React
+were not, React has more market share than all of the other candidates combined. React
 is the oldest of these technologies and will likely stick around far into the future. HTMX
 and Solid are about tied for the lowest market share and are the newest options. Solid has
 the benefit of using JSX which I would imagine makes it easier to adopt if you and your
@@ -394,10 +393,47 @@ While React is the clear winner when it comes to market share it is on the botto
 if your main concern is minimizing dependencies. React has an abundance of compatible 
 packages and it all but forces you to use some of them. This is a clear trade off from
 my perspective. More compatible packages means more functionality that you don't have
-to write yourself but also means a more comples dependency graph and a larger build size.
+to write yourself but also means a more complex dependency graph and a larger build size.
+In contrast Svelte (true to its name) has an impressivley small node_modules directory 
+and dependency list in general. Solid also gets a nod here. HTMX has deceptively
+minimal dependencies because if offloads all dynamic rendering to the server. If you
+are already using SSR with e.g. PHP, cshtml, jsp, etc. then this is a non-issue but if
+you need to evaluate SSR solutions then this could add a fairly significant dependency.
+
+#### Developer methodology
+My methodology during development of these test projects was to start each project using
+vite create, try to implement the requirements using the official docs, rely on tutorials
+when I had questions and then falling back on Copilot when all else failed. Once the 
+projects were created, tested and working, I took a second pass to improve consistency.
+
+### Developer experience
+
+#### Previously on...
+DX is obviously a very subjective topic and depends greatly on prior experience. To take
+a small bio detour, I've spent the majority of my career as a back end dev. My experience
+with front end was heavy during the jQuery and then Angular years. I did use an earlier
+version of React during the class component era so JSX was not a new concept. Most of
+the projects I maintain professionally have been migrating off of jQuery towards standard
+ES6 replacing jQuery with fetch and querySelector. Angular was abandoned when it moved 
+to TypeScript. We have an appitite to use a more modern approach and here we are.
+
+#### Developer methodology
+My methodology during development of these test projects was to start each project using
+vite create, try to implement the requirements using the official docs, rely on tutorials
+when I had questions and then falling back on Copilot when all else failed. Once the 
+projects were created, tested and working, I took a second pass to improve consistency.
+
+#### React vs. Solid
+React's move from class components to hooks definitely makes it a lot more dev friendly.
+I am still unsure when to useEffect and when it is unnecessary. I wanted to stick with
+fetch for API calls for consitency but saw many suggestions to use react-query at the 
+cost of yet another dependency. This is my main critique of React. It seems to force
+you into the React ecosystem making the standard JS API feel like a second class citizen.
+In contrast Solid allowed a more standard approach to writing JSX and components in 
+general. I really appreciate that Solid does not complain about JS keywords in JSX. It 
+makes migration much easier. I also appreciate the control flow elements which can be
+a bit more intuitive than using JS primitives in React JSX.
 
 
-
-- Developer experience
 - Build size
 - Run time performance
