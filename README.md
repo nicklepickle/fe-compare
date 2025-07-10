@@ -532,7 +532,7 @@ doing components either.
 ## Conclusion
 There are no bad choices here. All of the options evaluated here will absolutely
 do the job. If market share is what you want React is your answer full stop. 
-If you are dealing with highly stylized components that rely heavily on hand  
+If you are dealing with highly stylized components that rely heavily on hand
 rolled css, I would suggest Svelte or Vue. If speed and build size are 
 your top criteria it's hard to beat Solid. If javascript just annoys you and
 you want to write less of it, HTMX is a good bet. If learning any of this sounds
