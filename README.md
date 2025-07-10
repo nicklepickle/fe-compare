@@ -416,12 +416,6 @@ My methodology during development of these test projects was to start each proje
 vite create, try to implement the requirements using the official docs, rely on tutorials
 when I had questions and then falling back on Copilot when all else failed. Once the 
 projects were created, tested and working, I took a second pass to improve consistency.
-
-#### Developer methodology
-My methodology during development of these test projects was to start each project using
-vite create, try to implement the requirements using the official docs, rely on tutorials
-when I had questions and then falling back on Copilot when all else failed. Once the 
-projects were created, tested and working, I took a second pass to improve consistency.
 My goal was not perfection but rather an application that deomstrated more real world
 complexity than a counter or todo list.
 
@@ -486,17 +480,46 @@ key difference between how Svelte and Vue handle component css vs JSX is that cs
 be scoped entirely to the component e.g. `h2 {color:purple}` would only style h2's
 within the component where the css was included while in JSX any component css is global.
 
+#### Vite
 
+The unsung hero in this project as a whole is Vite. Vite provided a fantastic starting 
+point for all of the libraries, user friendly dev and build tools and a simple integration
+with the purposefully basic express back end. I doubt I would have had the patience to 
+complete this without it. Shout out to Vite!
 
-
-
-- Build size
+### Build size
+As you would expect build size tracks with dependency count. More dependencies mean
+bigger build. The winners here are Solid and Svelte with Solid beating Svelte by 11 KB.
+The heaviest build was React coming in at over ten times the size of Solid. How much
+this matters depends heavily on the size and complexity of the application as well as
+the target audience. That said most public facing web apps will target mobile users
+pulling your app down over a cellular network where they could be running as slow as
+300-400 kbps over 3G.
 
 ### Run time performance
-All of the performance metrics were measured with a production build using preview
+All of the performance benchmarks were measured with a production build using preview
 with only one browser tab open and some attempt to minimize other processes. With an 
 application the size and complexity of the test project, all of the projects performed 
-well enough that any discrepencies in load time or memory useare are likely due to the 
-environment they were running in than the speed of the build even with records cranked to 
-2000. If there is any takeaway here it is that my Windows 11 work laptop running Chrome 
-performed radically worse than my M1 2021 iMac running Safari.
+well enough that any discrepencies in load time or memory useage are likely due to the 
+environment they were running in rather than the speed of the build even with records 
+cranked to 2000. If there is any takeaway here it is that my Windows 11 work laptop 
+running Chrome performed radically worse than my M1 2021 iMac running Safari.
+
+## What about...
+ 
+### Angular?
+Angular is now a TypeScript library which you can not use with pure JS. This is a JS
+library comparison. It is disqualified. I also have opinions from prior experience.
+But hey, try it out. Vite create an angular app and see for yourself. Not pretty.
+
+### Server components?
+This is a valid question because every library evaluated here has some sort of SSR
+companion. React has Next.js, Solid has solid-start, Svelte has SvelteKit, Vue has
+vue/server-renderer. All of these assume you want to run JavaScript on your back end.
+Do you want to run a JS back end? My perfessional opinion is unless it is a small
+project that is not public facing, no you mostly don't. JS eats memory like me at
+a BBQ. It is slower than compiled languages and it is hard to reason about what it's
+doing under the hood thus hard to optimize. My current job runs C# and SQL Server.
+If I was starting a new project in 2025 I would consider Go. The reason HTMX snuck 
+in there because it is back end agnostic but it isn't really doing components either.
+
