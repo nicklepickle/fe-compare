@@ -82,85 +82,85 @@ The various libraries will be avaulated on the following criteria:
 ## Dependencies
 
 ### ES6
-Prod
+#### Prod
 - express
-Dev
+#### Dev
 - vite
 - vite-express
-
-total dependencies: 3
-package-lock size: 62 kB
-node_modules size: 22.1 MB
+#### Totals
+- total dependencies: 3
+- package-lock size: 62 kB
+- node_modules size: 22.1 MB
 
 ### HTMX
-Prod
+#### Prod
 - express
 - hbs
 - htmx.org
-Dev
+#### Dev
 - vite
 - vite-express
-
-total dependencies: 5
-package-lock size: 67 kB
-node_modules size: 22.4 MB
+#### Totals
+- total dependencies: 5
+- package-lock size: 67 kB
+- node_modules size: 22.4 MB
 
 ### React
-Prod
+#### Prod
 - express
 - react
 - react-dom
 - react-error-boundary
-Dev
+#### Dev
 - @types/react
 - @types/react-dom
 - @vitejs/plugin-react
 - globals
 - vite
 - vite-express
-
-total dependencies: 10
-package-lock size: 93 kB
-node_modules size: 44.8 MB
+#### Totals
+- total dependencies: 10
+- package-lock size: 93 kB
+- node_modules size: 44.8 MB
 
 ### Solid
-Prod
+#### Prod
 - express
 - solid-js
-Dev
+#### Dev
 - vite
 - vite-express
 - vite-plugin-solid
-
-total dependencies: 5
-package-lock size: 94 kB
-node_modules size: 38.7 MB
+#### Totals
+- total dependencies: 5
+- package-lock size: 94 kB
+- node_modules size: 38.7 MB
 
 ### Svelte
-Prod
+#### Prod
 - svelte
 - express
-Dev
+#### Dev
 - @sveltejs/vite-plugin-svelte
 - vite-express
 - vite
-
-total dependencies: 5
-package-lock size: 76 kB
-node_modules size: 27.7 MB
+#### Totals
+- total dependencies: 5
+- package-lock size: 76 kB
+- node_modules size: 27.7 MB
 
 ### Vue
-Prod
+#### Prod
 - express
 - vue
-Dev
+#### Dev
 - @vitejs/plugin-vue
 - vite-express
 - vite
-
-total dependencies: 5
-package-lock size: 72 kB
-node_modules size: 38.5 MB
+#### Totals
+- total dependencies: 5
+- package-lock size: 72 kB
+- node_modules size: 38.5 MB
 
 ## Development
 
@@ -449,10 +449,10 @@ skill issue and turned out to be much simpler than I initially thought. Some of 
 to do with the fact that there are multiple ways to handle state in Vue (data vs. ref vs.
 Vuex). At one point I fed most of my Vue files to Copilot to figure it out and it
 produced a completely broken solution. My main critique of Vue is that it seems there
-has been a decent amount of churn in the API. After my successful implementation, I 
-laerned I probably should have been using Pinia for state all along. This isn't uncommon
+has been a lot of churn in the API. After my successful implementation, I laerned 
+I probably should have been using Pinia for state all along. This isn't uncommon
 in any library that has been around for a while and Vue is over ten years old. React
-suffers from some of the same issues and I do appreciate backwards compatibility so 
+suffers from some of the same issues but I do appreciate backwards compatibility so 
 c'est la vie.
 
 #### HTMX
@@ -478,10 +478,9 @@ componentm I need to know more about its implementation than it seems I should a
 Toggling dark mode was largely trivial due to the fairly new color-scheme property. One
 key difference between how Svelte and Vue handle component css vs JSX is that css can
 be scoped entirely to the component e.g. `h2 {color:purple}` would only style h2's
-within the component where the css was included while in JSX any component css is global.
+within the component. In JSX, css included in a component is global.
 
 #### Vite
-
 The unsung hero in this project as a whole is Vite. Vite provided a fantastic starting 
 point for all of the libraries, user friendly dev and build tools and a simple integration
 with the purposefully basic express back end. I doubt I would have had the patience to 
@@ -503,7 +502,7 @@ application the size and complexity of the test project, all of the projects per
 well enough that any discrepencies in load time or memory useage are likely due to the 
 environment they were running in rather than the speed of the build even with records 
 cranked to 2000. If there is any takeaway here it is that my Windows 11 work laptop 
-running Chrome performed radically worse than my M1 2021 iMac running Safari.
+running Chrome performed radically worse than my 2021 M1 iMac running Safari.
 
 ## What about...
  
@@ -511,6 +510,12 @@ running Chrome performed radically worse than my M1 2021 iMac running Safari.
 Angular is now a TypeScript library which you can not use with pure JS. This is a JS
 library comparison. It is disqualified. I also have opinions from prior experience.
 But hey, try it out. Vite create an angular app and see for yourself. Not pretty.
+
+### TypeScript?
+I have nothing against TypeScript and I do think strong types in general are a good
+thing. That said all of the front end code I currently maintain is JS. Porting it to 
+TS would be a huge time sink and I don't think it would solve the types of issues
+that show up. But yes, knowing that 1+1=2 and not 11 without Number() would be nice.
 
 ### Server components?
 This is a valid question because every library evaluated here has some sort of SSR
@@ -520,6 +525,17 @@ Do you want to run a JS back end? My perfessional opinion is unless it is a smal
 project that is not public facing, no you mostly don't. JS eats memory like me at
 a BBQ. It is slower than compiled languages and it is hard to reason about what it's
 doing under the hood thus hard to optimize. My current job runs C# and SQL Server.
-If I was starting a new project in 2025 I would consider Go. The reason HTMX snuck 
-in there because it is back end agnostic but it isn't really doing components either.
+If I was building a commercial web application in 2025 I would consider Go. 
+The reason HTMX snuck in is because it is back end agnostic but it isn't really 
+doing components either.
 
+## Conclusion
+There are no bad choices here. All of the options evaluated here will absolutely
+do the job. If market share is what you want React is your answer full stop. 
+If you are dealing with highly stylized components that rely heavily on hand  
+rolled css, I would suggest Svelte or Vue. If speed and build size are 
+your top criteria it's hard to beat Solid. If javascript just annoys you and
+you want to write less of it, HTMX is a good bet. If learning any of this sounds
+like a migrane, just adopting the principles of modern ES6 with modules, fetch,
+async, etc. will do wonders for your JS code. And last but not least Vite makes
+all of it much more pleasant than it has literally ever been.
