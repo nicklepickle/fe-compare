@@ -396,15 +396,9 @@ my perspective. More compatible packages means more functionality that you don't
 to write yourself but also means a more complex dependency graph and a larger build size.
 In contrast Svelte (true to its name) has an impressivley small node_modules directory 
 and dependency list in general. Solid also gets a nod here. HTMX has deceptively
-minimal dependencies because if offloads all dynamic rendering to the server. If you
+minimal dependencies because it offloads all dynamic rendering to the server. If you
 are already using SSR with e.g. PHP, cshtml, jsp, etc. then this is a non-issue but if
 you need to evaluate SSR solutions then this could add a fairly significant dependency.
-
-#### Developer methodology
-My methodology during development of these test projects was to start each project using
-vite create, try to implement the requirements using the official docs, rely on tutorials
-when I had questions and then falling back on Copilot when all else failed. Once the 
-projects were created, tested and working, I took a second pass to improve consistency.
 
 ### Developer experience
 
@@ -423,6 +417,14 @@ vite create, try to implement the requirements using the official docs, rely on 
 when I had questions and then falling back on Copilot when all else failed. Once the 
 projects were created, tested and working, I took a second pass to improve consistency.
 
+#### Developer methodology
+My methodology during development of these test projects was to start each project using
+vite create, try to implement the requirements using the official docs, rely on tutorials
+when I had questions and then falling back on Copilot when all else failed. Once the 
+projects were created, tested and working, I took a second pass to improve consistency.
+My goal was not perfection but rather an application that deomstrated more real world
+complexity than a counter or todo list.
+
 #### React vs. Solid
 React's move from class components to hooks definitely makes it a lot more dev friendly.
 I am still unsure when to useEffect and when it is unnecessary. I wanted to stick with
@@ -432,7 +434,60 @@ you into the React ecosystem making the standard JS API feel like a second class
 In contrast Solid allowed a more standard approach to writing JSX and components in 
 general. I really appreciate that Solid does not complain about JS keywords in JSX. It 
 makes migration much easier. I also appreciate the control flow elements which can be
-a bit more intuitive than using JS primitives in React JSX.
+a bit more intuitive than using JS primitives in React JSX. I initially expected 
+Solid would offer less features than React but was pleased to see it does support complex
+features beyond what I could demonstrate in these test projects e.g. suspense rendering 
+and SSR.
+
+#### Svelte
+Prior to this project I had no direct experience with Svelte or Vue. They were both
+approachable by virtue of their HTML first design. State handling with runes in Svelte
+feels very similar to React hooks. The key difference is that $state does not return
+a setter. Instead, Svelte offers the $bindable rune for two way data flow. In some ways 
+$bindable is simpler than passing setters around as props. Svelte seems to discourage
+it's use claiming "This isn’t something you should do often". My experience is this is
+something I do often and I could see the temptation to make everything bindable leading
+to a jQuery like situation where it is difficult to reason about who updates what. 
+
+#### Vue
+I did struggle with Vue state more than state in the other projects. This was largely a 
+skill issue and turned out to be much simpler than I initially thought. Some of this had 
+to do with the fact that there are multiple ways to handle state in Vue (data vs. ref vs.
+Vuex). At one point I fed most of my Vue files to Copilot to figure it out and it
+produced a completely broken solution. My main critique of Vue is that it seems there
+has been a decent amount of churn in the API. After my successful implementation, I 
+laerned I probably should have been using Pinia for state all along. This isn't uncommon
+in any library that has been around for a while and Vue is over ten years old. React
+suffers from some of the same issues and I do appreciate backwards compatibility so 
+c'est la vie.
+
+#### HTMX
+HTMX is definitely the odd man out. In some ways it is comparing apples to bicycles 
+when set along side the other libraries. HTMX relies entirely on server side rendering
+so there is no templating here. I was surprised how much milage I got out of the hx- 
+attributes. Form validation and cookie access were the only features which required
+writing javascript and even there I was able to take advantage of the htmx JS functions
+to do a lot of useful things. State is entirely managed on the server due to SSR which
+isn't necessarily a bad thing and certianly better than having a large SQL data set
+that must be synced with a mirror of that data on the client. I do believe that a large
+and complex enough application would eventually devolve into a jQuery like mess using
+only HTMX. My largest HTMX critique though is the lack of support for loading as an ES6 
+modules. In 2025 modules are the default and I want to `import htmx from 'htmx.min.js'` 
+which as far as I can tell is not possible.
+
+#### CSS
+The style requirements for the test projects were fairly simple. The only dynamic
+css was toggling the display of the add item modal and toggling a dark mode theme. I was
+a little disapointed that in almost all of the solutions the main app had to know to
+remove the .hidden class to show the modal. If that css class is defined in the 
+componentm I need to know more about its implementation than it seems I should as a parent. 
+Toggling dark mode was largely trivial due to the fairly new color-scheme property. One
+key difference between how Svelte and Vue handle component css vs JSX is that css can
+be scoped entirely to the component e.g. `h2 {color:purple}` would only style h2's
+within the component where the css was included while in JSX any component css is global.
+
+
+
 
 
 - Build size

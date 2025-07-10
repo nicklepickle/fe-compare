@@ -13,7 +13,6 @@
                 htmx.find(":root").style.setProperty('color-scheme', JSON.parse(c).colorScheme)
             }
             
-
             function toggleDark() {
                 const root = htmx.find(":root");
                 let colorScheme = root.style.getPropertyValue('color-scheme');
@@ -62,8 +61,7 @@
             <div><input type="button" hx-get="/clear" hx-target="#records" value="Clear Checked" /></div>
         </div>
         <div hx-get="/records" hx-trigger="load" id="records"></div>
-
-
+        
         <div class="modal hidden" tabindex="-1" id="modal">
             <div class="modal-body">
                 <h2>Add Item</h2>
