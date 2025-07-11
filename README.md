@@ -1,4 +1,4 @@
-# Front End Javascipt Library Comparison
+# Front-End Javascipt Library Comparison
 
 ## About
 This project is a comparison of front end javascript libraries. Libraries will be compared using a 
@@ -82,147 +82,93 @@ The various libraries will be avaulated on the following criteria:
 ## Dependencies
 
 ### ES6
-#### Prod
-- express
-#### Dev
-- vite
-- vite-express
-#### Totals
-- total dependencies: 3
-- package-lock size: 62 kB
-- node_modules size: 22.1 MB
+```
+"dependencies": {
+    "express": "^5.1.0"
+},
+"devDependencies": {
+    "vite": "^6.3.5",
+    "vite-express": "^0.21.1"
+}
+```
+node_modules size: 22.1 MB
 
 ### HTMX
-#### Prod
-- express
-- hbs
-- htmx.org
-#### Dev
-- vite
-- vite-express
-#### Totals
-- total dependencies: 5
-- package-lock size: 67 kB
-- node_modules size: 22.4 MB
+```  
+"dependencies": {
+    "express": "^5.1.0",
+    "hbs": "^4.2.0",
+    "htmx.org": "^1.9.12"
+},
+"devDependencies": {
+    "vite": "^6.3.5",
+    "vite-express": "^0.21.1"
+}
+```
+node_modules size: 22.4 MB
 
 ### React
-#### Prod
-- express
-- react
-- react-dom
-- react-error-boundary
-#### Dev
-- @types/react
-- @types/react-dom
-- @vitejs/plugin-react
-- globals
-- vite
-- vite-express
-#### Totals
-- total dependencies: 10
-- package-lock size: 93 kB
-- node_modules size: 44.8 MB
+```  
+"dependencies": {
+    "express": "^5.1.0",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "react-error-boundary": "^6.0.0"
+},
+"devDependencies": {
+    "@eslint/js": "^9.25.0",
+    "@types/react": "^19.1.2",
+    "@types/react-dom": "^19.1.2",
+    "@vitejs/plugin-react": "^4.4.1",
+    "globals": "^16.0.0",
+    "vite": "^6.3.5",
+    "vite-express": "^0.21.1"
+}
+```
+node_modules size: 44.8 MB
 
 ### Solid
-#### Prod
-- express
-- solid-js
-#### Dev
-- vite
-- vite-express
-- vite-plugin-solid
-#### Totals
-- total dependencies: 5
-- package-lock size: 94 kB
-- node_modules size: 38.7 MB
+```
+"dependencies": {
+    "express": "^5.1.0",
+    "solid-js": "^1.9.5"
+},
+"devDependencies": {
+    "vite": "^6.3.5",
+    "vite-express": "^0.21.1",
+    "vite-plugin-solid": "^2.11.6"
+}
+```
+node_modules size: 38.7 MB
 
 ### Svelte
-#### Prod
-- svelte
-- express
-#### Dev
-- @sveltejs/vite-plugin-svelte
-- vite-express
-- vite
-#### Totals
-- total dependencies: 5
-- package-lock size: 76 kB
-- node_modules size: 27.7 MB
+```
+"dependencies": {
+    "svelte": "^5.28.1",
+    "express": "^5.1.0"
+},
+"devDependencies": {
+    "@sveltejs/vite-plugin-svelte": "^5.0.3",
+    "vite-express": "^0.21.1",
+    "vite": "^6.3.5"
+}
+```
+node_modules size: 27.7 MB
 
 ### Vue
-#### Prod
-- express
-- vue
-#### Dev
-- @vitejs/plugin-vue
-- vite-express
-- vite
-#### Totals
-- total dependencies: 5
-- package-lock size: 72 kB
-- node_modules size: 38.5 MB
+```
+"dependencies": {
+    "express": "^5.1.0",
+    "vue": "^3.5.13"
+},
+"devDependencies": {
+    "@vitejs/plugin-vue": "^5.2.3",
+    "vite-express": "^0.21.1",
+    "vite": "^6.3.5"
+}
+```
+node_modules size: 38.5 MB
 
-## Development
-
-### ES6
-#### Pros
-+ Does not require learning a framework
-+ Most granular control over data flow and lifecycle
-+ Great modularity for JS modules
-#### Cons
-- Generating HTML elements tedious without templates
-- No data binding
-- No modularity for HTML/CSS
-
-### HTMX 
-#### Pros
-+ Very intutive data flow
-+ Small set of html extenstions to learn
-+ Easy to extend with standard JS
-#### Cons
-- No data binding
-- Relied on/limited by hbs templating library for server side rendering
-- Lack of support for loading HTMX as a ES6 module
-- No modularity for CSS
-
-### React
-#### Pros
-+ Hooks are an improvement over class components
-+ Good modularity for HTML/JS
-+ Wide array of developer tools available
-#### Cons
-- Error handling painful wihtout error boundy
-- Array map weak solution for loops
-- JSX requires alternate html attributes to avoid naming conflicts with JS keywords
-- CSS modularity lost during build
-
-### Solid
-#### Pros
-+ Good modularity for HTML/JS
-+ Unlinke react, JSX does not require alternate html attributes for JS keywords
-+ For loops are an improvement over using array map in React
-#### Cons
-- CSS modularity lost during build
-
-### Svelte
-#### Pros
-+ Good modularity for HTML/JS
-+ CSS modulatiry enforced at build
-+ More standard way of including js, css and html in a component than JSX
-+ :bind makes two-way binding easy (maybe too easy?)
-#### Cons
-- Struggled with initial setup without SvelteKit (skill issue)
-- False positive errors in VSCode editor (fixable but annoying)
-- Component life cycle confusing (when are props populated? skill issue)
-
-### Vue
-#### Pros
-+ Good modularity for HTML/JS
-+ CSS modulatiry enforced at build
-+ More standard way of including js, css and html in a component that JSX
-#### Cons
-- v-model a little cryptic
-- Took longest to implement (skill issue)
 
 ## Build
 
@@ -379,22 +325,22 @@ Total Uncompressed: 69.95 kB
 ## Takeaways
 
 ### Market share
-If market share and all of the benefits that go with it (community, developers, compatible 
-packages, tutorials and lets be honest in 2025 GPT, Copilot, Cursor prompting) then React
-is the clear winner here. By any of the metrics considered and I am certian many that
+If market share and all the benefits that go with it (community, developers, compatible 
+packages, tutorials and let’s be honest in 2025 GPT, Copilot, Cursor prompting) then React
+is the clear winner here. By any of the metrics considered and I am certain many that
 were not, React has more market share than all of the other candidates combined. React
 is the oldest of these technologies and will likely stick around far into the future. HTMX
 and Solid are about tied for the lowest market share and are the newest options. Solid has
 the benefit of using JSX which I would imagine makes it easier to adopt if you and your
-team are already familiar with React.
+team are already familiar with React. This was certainly true for me.
 
 ### Dependencies
 While React is the clear winner when it comes to market share it is on the bottom wrung
 if your main concern is minimizing dependencies. React has an abundance of compatible 
 packages and it all but forces you to use some of them. This is a clear trade off from
-my perspective. More compatible packages means more functionality that you don't have
+my perspective. More compatible packages mean more functionality that you don't have
 to write yourself but also means a more complex dependency graph and a larger build size.
-In contrast Svelte (true to its name) has an impressivley small node_modules directory 
+In contrast Svelte (true to its name) has an impressively small node_modules directory 
 and dependency list in general. Solid also gets a nod here. HTMX has deceptively
 minimal dependencies because it offloads all dynamic rendering to the server. If you
 are already using SSR with e.g. PHP, cshtml, jsp, etc. then this is a non-issue but if
@@ -404,25 +350,25 @@ you need to evaluate SSR solutions then this could add a fairly significant depe
 
 #### Previously on...
 DX is obviously a very subjective topic and depends greatly on prior experience. To take
-a small bio detour, I've spent the majority of my career as a back end dev. My experience
-with front end was heavy during the jQuery and then Angular years. I did use an earlier
+a small bio detour, I've spent the majority of my career as a back-end dev. My experience
+with front-end was heavy during the jQuery and then Angular years. I did use an earlier
 version of React during the class component era so JSX was not a new concept. Most of
 the projects I maintain professionally have been migrating off of jQuery towards standard
 ES6 replacing jQuery with fetch and querySelector. Angular was abandoned when it moved 
-to TypeScript. We have an appitite to use a more modern approach and here we are.
+to TypeScript. We have an appetite to use a more modern approach and here we are.
 
 #### Developer methodology
 My methodology during development of these test projects was to start each project using
 vite create, try to implement the requirements using the official docs, rely on tutorials
 when I had questions and then falling back on Copilot when all else failed. Once the 
 projects were created, tested and working, I took a second pass to improve consistency.
-My goal was not perfection but rather an application that deomstrated more real world
-complexity than a counter or todo list.
+My goal was not perfection but rather an application that demonstrated more real world
+complexity than a counter or to-do list.
 
 #### React vs. Solid
 React's move from class components to hooks definitely makes it a lot more dev friendly.
 I am still unsure when to useEffect and when it is unnecessary. I wanted to stick with
-fetch for API calls for consitency but saw many suggestions to use react-query at the 
+fetch for API calls for consistency but saw many suggestions to use react-query at the 
 cost of yet another dependency. This is my main critique of React. It seems to force
 you into the React ecosystem making the standard JS API feel like a second class citizen.
 In contrast Solid allowed a more standard approach to writing JSX and components in 
@@ -449,7 +395,7 @@ skill issue and turned out to be much simpler than I initially thought. Some of 
 to do with the fact that there are multiple ways to handle state in Vue (data vs. ref vs.
 Vuex). At one point I fed most of my Vue files to Copilot to figure it out and it
 produced a completely broken solution. My main critique of Vue is that it seems there
-has been a lot of churn in the API. After my successful implementation, I laerned 
+has been a lot of churn in the API. After my successful implementation, I learned 
 I probably should have been using Pinia for state all along. This isn't uncommon
 in any library that has been around for a while and Vue is over ten years old. React
 suffers from some of the same issues but I do appreciate backwards compatibility so 
@@ -457,7 +403,7 @@ c'est la vie.
 
 #### HTMX
 HTMX is definitely the odd man out. In some ways it is comparing apples to bicycles 
-when set along side the other libraries. HTMX relies entirely on server side rendering
+when set along side the other libraries. HTMX relies entirely on server-side rendering
 so there is no templating here. I was surprised how much milage I got out of the hx- 
 attributes. Form validation and cookie access were the only features which required
 writing javascript and even there I was able to take advantage of the htmx JS functions
@@ -472,12 +418,12 @@ which as far as I can tell is not possible.
 #### CSS
 The style requirements for the test projects were fairly simple. The only dynamic
 css was toggling the display of the add item modal and toggling a dark mode theme. I was
-a little disapointed that in almost all of the solutions the main app had to know to
+a little disappointed that in almost all of the solutions the main app had to know to
 remove the .hidden class to show the modal. If that css class is defined in the 
-componentm I need to know more about its implementation than it seems I should as a parent. 
-Toggling dark mode was largely trivial due to the fairly new color-scheme property. One
-key difference between how Svelte and Vue handle component css vs JSX is that css can
-be scoped entirely to the component e.g. `h2 {color:purple}` would only style h2's
+component I need to know more about its implementation than it seems I should as a parent.  
+Toggling dark mode was largely trivial due to the fairly new color-scheme property. 
+One key difference between how Svelte and Vue handle component css vs JSX is that css 
+can be scoped entirely to the component e.g. `h2 {color:purple}` would only style h2's
 within the component. In JSX, css included in a component is global.
 
 #### Vite
@@ -499,7 +445,7 @@ pulling your app down over a cellular network where they could be running as slo
 All of the performance benchmarks were measured with a production build using preview
 with only one browser tab open and some attempt to minimize other processes. With an 
 application the size and complexity of the test project, all of the projects performed 
-well enough that any discrepencies in load time or memory useage are likely due to the 
+well enough that any discrepancies in load time or memory usage are likely due to the 
 environment they were running in rather than the speed of the build even with records 
 cranked to 2000. If there is any takeaway here it is that my Windows 11 work laptop 
 running Chrome performed radically worse than my 2021 M1 iMac running Safari.
@@ -513,29 +459,29 @@ But hey, try it out. Vite create an angular app and see for yourself. Not pretty
 
 ### TypeScript?
 I have nothing against TypeScript and I do think strong types in general are a good
-thing. That said all of the front end code I currently maintain is JS. Porting it to 
+thing. That said all of the front-end code I currently maintain is JS. Porting it to 
 TS would be a huge time sink and I don't think it would solve the types of issues
 that show up. But yes, knowing that 1+1=2 and not 11 without Number() would be nice.
 
 ### Server components?
 This is a valid question because every library evaluated here has some sort of SSR
 companion. React has Next.js, Solid has solid-start, Svelte has SvelteKit, Vue has
-vue/server-renderer. All of these assume you want to run JavaScript on your back end.
-Do you want to run a JS back end? My perfessional opinion is unless it is a small
+vue/server-renderer. All of these assume you want to run JavaScript on your back-end.
+Do you want to run a JS back-end? My professional opinion is unless it is a small
 project that is not public facing, no you mostly don't. JS eats memory like me at
 a BBQ. It is slower than compiled languages and it is hard to reason about what it's
 doing under the hood thus hard to optimize. My current job runs C# and SQL Server.
 If I was building a commercial web application in 2025 I would consider Go. 
-The reason HTMX snuck in is because it is back end agnostic but it isn't really 
+The reason HTMX snuck in is because it is back-end agnostic but it isn't really 
 doing components either.
 
 ## Conclusion
-There are no bad choices here. All of the options evaluated here will absolutely
+There are no bad choices here. All the options evaluated here will absolutely
 do the job. If market share is what you want React is your answer full stop. 
 If you are dealing with highly stylized components that rely heavily on hand
 rolled css, I would suggest Svelte or Vue. If speed and build size are 
 your top criteria it's hard to beat Solid. If javascript just annoys you and
 you want to write less of it, HTMX is a good bet. If learning any of this sounds
-like a migrane, just adopting the principles of modern ES6 with modules, fetch,
-async, etc. will do wonders for your JS code. And last but not least Vite makes
+like a migraine, just adopting the principles of modern ES6 with modules, fetch,
+async, etc. will do wonders for your JS code. And finally, Vite makes
 all of it much more pleasant than it has literally ever been.
